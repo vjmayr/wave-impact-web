@@ -1,0 +1,1098 @@
+/* ============================================================
+   waveImpact — Global Stylesheet
+   Version 1.0 — Mai 2026
+
+   Single source of truth für alle visuellen Stile.
+   Einsatz in WordPress:
+     Customize → Additional CSS  (oder)
+     Kadence → Customizer → Global Custom CSS
+
+   Alle Klassen tragen den Präfix `wi-` zur Vermeidung
+   von Kollisionen mit Theme-Klassen.
+
+   Robustheit gegen Theme-Overrides:
+     - !important nur dort, wo Themes typischerweise drüberschreiben
+       (h2 in farbigen Blöcken, ul list-style)
+     - Padding/Border statt Margin für Zwischenabstände
+     - Hex-Fallbacks neben CSS-Variablen
+   ============================================================ */
+
+
+/* ---- 1. Brand-Tokens ---- */
+:root {
+  /* Brand colours */
+  --wi-green:        #059669;
+  --wi-green-dark:   #047857;
+  --wi-teal:         #0D9488;
+  --wi-teal-light:   #2DD4BF;
+
+  /* Text scale */
+  --wi-text:         #1F2937;
+  --wi-text-soft:    #4B5563;
+  --wi-text-muted:   #6B7280;
+  --wi-text-faint:   #9CA3AF;
+
+  /* Surfaces */
+  --wi-surface:        #FFFFFF;
+  --wi-surface-soft:   #F9FAFB;
+  --wi-surface-muted:  #F3F4F6;
+
+  /* Borders */
+  --wi-border:       rgba(31, 41, 55, 0.10);
+  --wi-border-soft:  rgba(31, 41, 55, 0.06);
+
+  /* Semantic pill tones */
+  --wi-pill-warn-bg: #FEF3C7;
+  --wi-pill-warn-fg: #92400E;
+  --wi-pill-info-bg: #DBEAFE;
+  --wi-pill-info-fg: #1E40AF;
+
+  /* Layout */
+  --wi-container: 1200px;
+  --wi-gutter:    32px;
+
+  /* Type stacks */
+  --wi-font-body:  'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --wi-font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+
+/* ---- 2. Typografie-Bausteine ---- */
+.wi-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0 0 12px;
+  text-transform: none;
+}
+
+.wi-display {
+  font-size: clamp(38px, 5.2vw, 64px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--wi-text);
+  margin: 0;
+}
+
+.wi-h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--wi-text);
+  margin: 0;
+}
+
+.wi-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+  margin: 0;
+}
+
+.wi-lead {
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+  margin: 0;
+}
+
+.wi-accent { color: var(--wi-green); }
+.wi-serif  { font-family: var(--wi-font-serif); }
+
+.wi-big-num {
+  font-family: var(--wi-font-serif);
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--wi-green);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.wi-step-num {
+  font-family: var(--wi-font-serif);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+
+/* ---- 3. Layout-Primitive ---- */
+.wi-container {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+}
+
+.wi-section          { padding-block: 112px; }
+.wi-section-tight    { padding-block: 64px; }
+.wi-section-bordered { border-top: 1px solid var(--wi-border); }
+
+/* Default visual rhythm: every wi-section that follows another wi-section
+   gets a hairline border-top. The first section (hero) has no preceding
+   sibling, so it stays flush against the header. Override with .wi-section-flush
+   for sections that already create their own visual break (e.g. after a
+   colored CTA block). */
+.wi-section + .wi-section {
+  border-top: 1px solid var(--wi-border);
+}
+.wi-section-flush + .wi-section,
+.wi-section + .wi-section-flush {
+  border-top: none;
+}
+
+
+/* ---- 4. Buttons ---- */
+.wi-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wi-btn-primary {
+  background: var(--wi-green);
+  color: #FFFFFF;
+}
+.wi-btn-primary:hover {
+  background: var(--wi-green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgba(5, 150, 105, 0.5);
+  color: #FFFFFF;
+}
+
+.wi-btn-ghost {
+  background: transparent;
+  color: var(--wi-text);
+  border-color: var(--wi-border);
+}
+.wi-btn-ghost:hover {
+  border-color: var(--wi-text);
+  transform: translateY(-1px);
+  color: var(--wi-text);
+}
+
+.wi-btn-light {
+  background: #FFFFFF;
+  color: var(--wi-green);
+}
+.wi-btn-light:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.25);
+  color: var(--wi-green);
+}
+
+.wi-btn-outline-light {
+  background: transparent;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.wi-btn-outline-light:hover {
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.wi-arrow         { transition: transform 180ms ease; }
+.wi-btn:hover .wi-arrow { transform: translateX(2px); }
+
+
+/* ---- 5. Pills (Timeline + andere) ---- */
+.wi-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-align: center;
+  min-width: 110px;
+  white-space: nowrap;
+}
+.wi-pill-neutral { background: var(--wi-surface-muted); color: var(--wi-text-muted); }
+.wi-pill-warning { background: var(--wi-pill-warn-bg);  color: var(--wi-pill-warn-fg); }
+.wi-pill-info    { background: var(--wi-pill-info-bg);  color: var(--wi-pill-info-fg); }
+
+
+/* ---- 6. Header ---- */
+.wi-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--wi-border-soft);
+}
+.wi-header-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding: 16px var(--wi-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wi-header-logo {
+  display: inline-block;
+  line-height: 0;
+}
+.wi-header-logo img {
+  display: block;
+  width: 246px;     /* 40 px Höhe × 6,159 Seitenverhältnis */
+  height: 40px;
+  max-width: 100%;
+}
+.wi-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.wi-nav a {
+  font-size: 14px;
+  color: var(--wi-text-soft);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.wi-nav a:hover { color: var(--wi-text); }
+.wi-nav-lang {
+  color: var(--wi-text-faint);
+  font-size: 13px;
+  padding-left: 24px;
+  border-left: 1px solid var(--wi-border);
+}
+
+
+/* ---- 7. Hero (Split-Layout mit Visual) ---- */
+.wi-hero {
+  padding-block: 96px 80px;
+}
+.wi-hero-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 80px;
+  align-items: center;
+}
+.wi-hero-eyebrow { margin-bottom: 28px; }
+.wi-hero h1      { margin: 0 0 28px; max-width: 18ch; }
+.wi-hero-lead    { margin: 0 0 40px; max-width: 50ch; }
+.wi-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.wi-hero-visual {
+  position: relative;
+  width: 100%;
+}
+.wi-hero-visual img,
+.wi-hero-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ---- 8. Stat-Strip ---- */
+.wi-stat-strip {
+  border-block: 1px solid var(--wi-border);
+  padding-block: 56px;
+}
+.wi-stat-strip-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+.wi-stat-label {
+  font-size: 14px;
+  color: var(--wi-text-soft);
+  margin: 14px 0 0;
+  max-width: 24ch;
+  line-height: 1.45;
+}
+
+
+/* ---- 9. Value-Props (nummerierte Kacheln) ---- */
+.wi-valueprops {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+}
+.wi-valueprop-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+}
+.wi-valueprop-text {
+  color: var(--wi-text-soft);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ---- 10. Pull-Quote ---- */
+.wi-pullquote {
+  background: var(--wi-surface-soft);
+  border-radius: 20px;
+  padding: 80px 88px 80px 200px;
+  position: relative;
+  overflow: hidden;
+}
+.wi-pullquote-mark {
+  position: absolute;
+  top: 64px;
+  left: 80px;
+  width: 80px;
+  height: auto;
+  opacity: 0.4;
+}
+.wi-pullquote-text {
+  font-family: var(--wi-font-serif);
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+  max-width: 30ch;
+  margin: 0;
+}
+.wi-pullquote-attribution {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  margin: 32px 0 0;
+  letter-spacing: 0.04em;
+}
+
+
+/* ---- 11. Timeline ---- */
+.wi-timeline-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.wi-timeline-stand {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.wi-timeline-intro {
+  max-width: 60ch;
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+}
+.wi-timeline-list {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+.wi-timeline-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid var(--wi-border);
+}
+.wi-timeline-row:last-child {
+  border-bottom: 1px solid var(--wi-border);
+}
+.wi-timeline-row p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--wi-text);
+}
+.wi-timeline-note { color: var(--wi-text-faint); }
+.wi-timeline-summary {
+  max-width: 60ch;
+  margin: 40px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+}
+.wi-timeline-summary strong {
+  color: var(--wi-text);
+  font-weight: 700;
+}
+
+
+/* ---- 12. Service-Cards ---- */
+.wi-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.wi-service-card {
+  background: #FFFFFF;
+  border: 1px solid var(--wi-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+  transition: all 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.wi-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(31, 41, 55, 0.15);
+  border-color: var(--wi-text-muted);
+}
+.wi-service-card-featured {
+  border: 2px solid var(--wi-green);
+  box-shadow: 0 8px 30px -12px rgba(5, 150, 105, 0.25);
+}
+.wi-service-card-featured:hover {
+  box-shadow: 0 24px 48px -16px rgba(5, 150, 105, 0.35);
+}
+.wi-service-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--wi-green);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+.wi-service-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+}
+.wi-service-subtitle {
+  font-size: 14px;
+  color: var(--wi-text-soft);
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+.wi-service-price {
+  font-family: var(--wi-font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.wi-service-meta {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  margin: 8px 0 0;
+  letter-spacing: 0.02em;
+}
+
+
+/* ---- 13. Differentiators (Icon + Titel + Text) ---- */
+.wi-diff {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+.wi-diff-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wi-green);
+  margin-bottom: 24px;
+}
+.wi-diff-icon svg { width: 100%; height: 100%; }
+.wi-diff-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+}
+.wi-diff-text {
+  color: var(--wi-text-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ---- 14. Final-CTA (grüner Block) ---- */
+.wi-final-cta {
+  background: var(--wi-green);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 88px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.wi-final-cta-decor {
+  position: absolute;
+  right: -80px;
+  top: -40px;
+  width: 480px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.wi-final-cta .wi-eyebrow { color: rgba(255, 255, 255, 0.75); margin-bottom: 24px; }
+.wi-final-cta h2,
+.wi-final-cta .wi-h2 {
+  color: #FFFFFF !important;
+  max-width: 22ch;
+  margin: 0 0 40px;
+}
+.wi-final-cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---- 15. Footer ---- */
+.wi-footer {
+  padding: 64px 0 40px;
+  border-top: 1px solid var(--wi-border);
+  background: #FFFFFF;
+  font-family: var(--wi-font-body);
+}
+.wi-footer-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+}
+.wi-footer-brand {
+  max-width: 460px;
+}
+.wi-footer-logo-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  line-height: 0;
+}
+.wi-footer-logo {
+  display: block;
+  width: 197px;     /* 32 px Höhe × 6,159 Seitenverhältnis */
+  height: 32px;
+  max-width: 100%;
+}
+.wi-footer-tagline {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--wi-text-muted);
+}
+.wi-footer-bottom {
+  max-width: var(--wi-container);
+  margin: 40px auto 0;
+  padding: 24px var(--wi-gutter) 0;
+  border-top: 1px solid var(--wi-border-soft);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--wi-text-faint);
+}
+.wi-footer-bottom a {
+  color: inherit;
+  text-decoration: none;
+}
+.wi-footer-bottom a:hover { color: var(--wi-text-soft); }
+
+
+/* ---- 16. Progression-Flow (nummerierte Schritte mit Verbindungslinien) ---- */
+.wi-progression {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 48px;
+}
+.wi-progression-step {
+  padding: 0 24px;
+  position: relative;
+}
+.wi-progression-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: -12px;
+  width: 24px;
+  height: 1px;
+  background: var(--wi-border);
+}
+.wi-progression-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--wi-surface-muted);
+  color: var(--wi-text-muted);
+  font-family: var(--wi-font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.wi-progression-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0 0 4px;
+}
+.wi-progression-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--wi-text);
+  margin: 0 0 8px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.wi-progression-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--wi-text-soft);
+  margin: 0;
+}
+
+
+/* ---- 17. Service-Detail-Card (große Service-Beschreibung) ---- */
+.wi-service-detail {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  padding: 72px 0;
+  border-top: 1px solid var(--wi-border);
+}
+.wi-service-detail-meta {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+.wi-service-detail-code {
+  font-family: var(--wi-font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--wi-teal);
+  letter-spacing: 0.04em;
+  margin: 0 0 16px;
+}
+.wi-service-detail-price {
+  font-family: var(--wi-font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.wi-service-detail-duration {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  letter-spacing: 0.02em;
+  margin: 0 0 24px;
+}
+.wi-service-detail-body h3 {
+  font-size: clamp(24px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--wi-text);
+  margin: 0 0 16px;
+}
+.wi-service-detail-lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+  margin: 0 0 32px;
+  max-width: 56ch;
+}
+.wi-service-includes {
+  list-style: none !important;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 32px;
+}
+.wi-service-includes li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--wi-text);
+}
+.wi-service-includes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 2px;
+  background: var(--wi-teal);
+  border-radius: 999px;
+}
+.wi-service-when {
+  font-size: 13px;
+  color: var(--wi-text-muted);
+  margin: 0 0 24px;
+  font-style: italic;
+}
+.wi-service-when strong { font-style: normal; color: var(--wi-text-soft); }
+
+
+/* ---- 18. Vergleichs-Matrix (Pakete) ---- */
+.wi-matrix {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+  margin-top: 40px;
+}
+.wi-matrix thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wi-text-muted);
+  border-bottom: 2px solid var(--wi-border);
+  vertical-align: bottom;
+}
+.wi-matrix thead th:not(:first-child) {
+  text-align: center;
+  width: 22%;
+}
+.wi-matrix thead th.wi-matrix-featured {
+  color: var(--wi-green);
+  background: rgba(5, 150, 105, 0.04);
+}
+.wi-matrix tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--wi-border-soft);
+  vertical-align: middle;
+}
+.wi-matrix tbody td:first-child {
+  color: var(--wi-text);
+  font-weight: 400;
+}
+.wi-matrix tbody td:not(:first-child) {
+  text-align: center;
+  color: var(--wi-text-faint);
+  font-size: 18px;
+}
+.wi-matrix tbody td.wi-matrix-yes { color: var(--wi-green); font-weight: 700; }
+.wi-matrix tbody td.wi-matrix-featured { background: rgba(5, 150, 105, 0.04); }
+.wi-matrix tfoot td {
+  padding: 20px;
+  border-top: 2px solid var(--wi-border);
+  font-family: var(--wi-font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--wi-green);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+.wi-matrix tfoot td:first-child {
+  font-family: var(--wi-font-body);
+  font-size: 13px;
+  color: var(--wi-text-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+.wi-matrix tfoot td.wi-matrix-featured { background: rgba(5, 150, 105, 0.04); }
+
+
+/* ---- 19. FAQ (native details/summary) ---- */
+.wi-faq {
+  max-width: 880px;
+}
+.wi-faq-item {
+  border-top: 1px solid var(--wi-border);
+}
+.wi-faq-item:last-child {
+  border-bottom: 1px solid var(--wi-border);
+}
+.wi-faq-item summary {
+  padding: 24px 48px 24px 0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--wi-text);
+  letter-spacing: -0.01em;
+  position: relative;
+  list-style: none;
+  transition: color 150ms ease;
+}
+.wi-faq-item summary::-webkit-details-marker { display: none; }
+.wi-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--wi-font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--wi-teal);
+  transition: transform 200ms ease;
+  line-height: 1;
+}
+.wi-faq-item[open] summary { color: var(--wi-green); }
+.wi-faq-item[open] summary::after {
+  content: "−";
+  transform: translateY(-50%) rotate(0deg);
+}
+.wi-faq-item summary:hover { color: var(--wi-green); }
+.wi-faq-answer {
+  padding: 0 48px 28px 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--wi-text-soft);
+  max-width: 70ch;
+}
+.wi-faq-answer p { margin: 0 0 12px; }
+.wi-faq-answer p:last-child { margin-bottom: 0; }
+
+
+/* ---- 20. Meta-Strip (Service-Kennzahlen unter Hero-Headline) ---- */
+.wi-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 48px;
+  padding: 28px 0;
+  border-top: 1px solid var(--wi-border);
+  border-bottom: 1px solid var(--wi-border);
+}
+.wi-meta-strip-item {
+  padding: 0 56px 0 0;
+  margin-right: 56px;
+  border-right: 1px solid var(--wi-border-soft);
+}
+.wi-meta-strip-item:last-child {
+  padding-right: 0;
+  margin-right: 0;
+  border-right: none;
+}
+.wi-meta-strip-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-text-muted);
+  margin: 0 0 8px;
+  text-transform: none;
+}
+.wi-meta-strip-value {
+  font-family: var(--wi-font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--wi-text);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin: 0;
+}
+
+
+/* ---- 21. Phase-Liste (Service-Phasen mit Deliverables) ---- */
+.wi-phase-list {
+  margin: 48px 0 0;
+}
+.wi-phase {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  padding: 60px 0;
+  border-top: 1px solid var(--wi-border);
+}
+.wi-phase-meta {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+.wi-phase-num {
+  font-family: var(--wi-font-serif);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+.wi-phase-duration {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0;
+}
+.wi-phase-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--wi-text);
+}
+.wi-phase-body p {
+  margin: 0 0 16px;
+  line-height: 1.65;
+  color: var(--wi-text-soft);
+  font-size: 16px;
+}
+.wi-phase-body p:last-child { margin-bottom: 0; }
+.wi-phase-deliverables {
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: var(--wi-surface-soft);
+  border-radius: 12px;
+}
+.wi-phase-deliverables-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0 0 12px;
+}
+.wi-phase-deliverables ul {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+.wi-phase-deliverables li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--wi-text);
+}
+.wi-phase-deliverables li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 10px;
+  height: 2px;
+  background: var(--wi-teal);
+  border-radius: 999px;
+}
+
+
+/* ---- 22. Responsive ---- */
+@media (max-width: 960px) {
+  .wi-section { padding-block: 72px; }
+  .wi-hero    { padding-block: 64px 56px; }
+  .wi-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .wi-hero-visual { max-width: 360px; }
+  .wi-stat-strip-inner,
+  .wi-valueprops,
+  .wi-services,
+  .wi-diff {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .wi-pullquote { padding: 56px 32px; }
+  .wi-pullquote-mark {
+    position: static;
+    margin-bottom: 24px;
+  }
+  .wi-pullquote-text { font-size: 24px; }
+  .wi-timeline-header { grid-template-columns: 1fr; }
+  .wi-timeline-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .wi-final-cta { padding: 56px 32px; }
+  .wi-final-cta-decor { width: 320px; right: -80px; }
+  .wi-nav { display: none; }
+  .wi-header-logo img { width: 184px; height: 30px; }
+
+  /* New components */
+  .wi-progression { grid-template-columns: 1fr; gap: 24px; }
+  .wi-progression-step { padding: 24px 0; border-top: 1px solid var(--wi-border); }
+  .wi-progression-step:first-child { border-top: none; }
+  .wi-progression-step:not(:last-child)::after { display: none; }
+  .wi-service-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 48px 0;
+  }
+  .wi-service-detail-meta { position: static; }
+  .wi-service-includes { grid-template-columns: 1fr; gap: 10px; }
+  .wi-matrix thead th,
+  .wi-matrix tbody td,
+  .wi-matrix tfoot td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  .wi-matrix tfoot td { font-size: 17px; }
+
+  /* New: Meta-Strip and Phase-List */
+  .wi-meta-strip {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0;
+  }
+  .wi-meta-strip-item {
+    padding: 0;
+    margin: 0;
+    border-right: none;
+  }
+  .wi-phase {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 36px 0;
+  }
+  .wi-phase-meta { position: static; }
+  .wi-phase-num { font-size: 44px; }
+  .wi-phase-deliverables ul { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .wi-footer { padding: 48px 0 32px; }
+  .wi-footer-tagline { font-size: 14px; }
+  .wi-big-num { font-size: 56px; }
+  .wi-faq-item summary { font-size: 16px; padding-right: 36px; }
+  .wi-faq-item summary::after { font-size: 22px; }
+  .wi-faq-answer { font-size: 15px; padding-right: 0; }
+}

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continuous AI Monitoring — waveImpact</title>
+  <meta name="description" content="Post-Market-Monitoring für KI-Systeme nach Art. 72 EU AI Act: Drift-Detection, Bias-Creep-Alarmierung, Quartals-Compliance-Reviews. Setup ab 6.000 € + Retainer ab 2.000 €/Monat.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="waveImpact_global.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="wi-header">
+    <div class="wi-header-inner">
+      <a href="/" class="wi-header-logo" aria-label="waveImpact — Startseite">
+        <img src="waveImpact_logo_horizontal.svg" alt="waveImpact" width="246" height="40">
+      </a>
+      <nav class="wi-nav" aria-label="Hauptnavigation">
+        <a href="/leistungen" style="color: #1F2937;">Leistungen</a>
+        <a href="/expertise">Expertise</a>
+        <a href="/news">News</a>
+        <a href="/kontakt">Kontakt</a>
+        <a href="/en" class="wi-nav-lang">DE · EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="wi-section" style="padding-block: 80px 32px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">
+        <a href="/leistungen" style="color: var(--wi-text-muted); text-decoration: none;">Leistungen</a>
+        <span style="margin: 0 8px; color: var(--wi-text-muted);">/</span>
+        S3 · Verstetigen
+      </p>
+      <h1 class="wi-display" style="margin-top: 20px; max-width: 22ch;">Continuous AI Monitoring.</h1>
+      <p class="wi-lead" style="margin-top: 28px; max-width: 60ch;">
+        Ein Audit ist eine Momentaufnahme. KI-Modelle verändern sich
+        kontinuierlich — durch Datendrift, Nutzerverhalten und
+        Feedback-Schleifen. Continuous Monitoring macht aus der einmaligen
+        Prüfung eine laufende Praxis, die der Post-Market-Monitoring-Pflicht
+        nach Art. 72 EU AI Act genügt und Aufsichtsrat, Investoren und
+        Rating-Agenturen quartalsweise belastbar bedient.
+      </p>
+
+      <div class="wi-meta-strip">
+        <div class="wi-meta-strip-item">
+          <p class="wi-meta-strip-label">Setup-Investition</p>
+          <p class="wi-meta-strip-value">ab 6.000 €</p>
+        </div>
+        <div class="wi-meta-strip-item">
+          <p class="wi-meta-strip-label">Retainer</p>
+          <p class="wi-meta-strip-value">ab 2.000 €/Monat</p>
+        </div>
+        <div class="wi-meta-strip-item">
+          <p class="wi-meta-strip-label">Setup-Dauer</p>
+          <p class="wi-meta-strip-value">4–6 Wochen</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px;">
+        <a href="#kontakt" class="wi-btn wi-btn-primary">Erstgespräch vereinbaren <span class="wi-arrow">→</span></a>
+        <a href="#tarife" class="wi-btn wi-btn-ghost">Zum Investitionsrahmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET CLIENT -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Für wen das passt</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 28ch;">
+        Sie haben KI produktiv im Einsatz und müssen darüber dauerhaft Rechenschaft geben.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Monitoring ist der natürliche Nachfolger eines Bias Audits. Es lohnt
+        sich, sobald die Modelle stabil laufen, die Datenpipelines etabliert
+        sind und regelmäßige Berichts­anforderungen entstehen — sei es aus
+        EU AI Act, CSRD, durch Investoren oder den eigenen Aufsichtsrat.
+      </p>
+
+      <div class="wi-valueprops" style="margin-top: 56px;">
+        <div>
+          <div class="wi-step-num">01</div>
+          <h3 class="wi-valueprop-title">Anwendungsbereich</h3>
+          <p class="wi-valueprop-text">
+            Hochrisiko-Systeme nach Anhang III im produktiven Einsatz oder
+            eingebettete Hochrisiko-KI nach Anhang I in Produkten. Idealerweise
+            mit abgeschlossenem Audit als Baseline — sonst messen wir gegen
+            einen unbekannten Ausgangspunkt.
+          </p>
+        </div>
+        <div>
+          <div class="wi-step-num">02</div>
+          <h3 class="wi-valueprop-title">Reifegrad</h3>
+          <p class="wi-valueprop-text">
+            Systeme seit mindestens sechs Monaten produktiv. Datenpipelines
+            stabil, MLOps-Infrastruktur vorhanden, Re-Training-Prozesse
+            etabliert. Vorher fehlt die Grundlage für sinnvolle
+            Drift-Schwellen.
+          </p>
+        </div>
+        <div>
+          <div class="wi-step-num">03</div>
+          <h3 class="wi-valueprop-title">Entscheidungsträger</h3>
+          <p class="wi-valueprop-text">
+            Compliance-Leitung mit Art.-72-Verantwortung, AI/Data Lead,
+            Datenschutzbeauftragte, CSO bei CSRD-Integration. Häufig mit
+            Reporting-Pflicht gegenüber Aufsichtsrat oder externen Stakeholdern.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 64px; padding: 32px 36px; background: var(--wi-surface-soft); border-radius: 16px;">
+        <p class="wi-eyebrow" style="margin-bottom: 16px;">Schmerzpunkte, die wir adressieren</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;">
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Audit-Ergebnis veraltet, niemand weiß wie aktuell die Fairness ist
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Bias Creep ohne Frühwarnsystem
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Art.-72-Post-Market-Monitoring-Pflicht ungelöst
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Quartals-Updates für Aufsichtsrat ohne Datenbasis
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Manuelles Reporting bindet Data-Scientist-Kapazität
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            CSRD- und Investoren-Anforderungen wachsen schneller als die interne Kapazität
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASES -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow" style="padding-top: 96px;">Setup-Vorgehen</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Drei Setup-Phasen — danach Routine.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Monitoring ist nach dem Aufbau ein Zustand, keine Sequenz. Wir
+        investieren 4 bis 6 Wochen in einen sauberen Setup, der den
+        Übergang in den laufenden Retainer reibungslos macht — und in
+        dieser Zeit sicherstellt, dass die richtigen Signale, Schwellen
+        und Verantwortlichkeiten festgelegt sind.
+      </p>
+
+      <div class="wi-phase-list">
+
+        <!-- Phase A -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">A</p>
+            <p class="wi-phase-duration">Wochen 1–2 · 25–35 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">Konfiguration &amp; Schwellen-Design</h3>
+            <p>
+              Wir konkretisieren das Monitoring-Inventar: Welche KI-Systeme
+              werden überwacht? Welche Fairness-Metriken sind aus Audit oder
+              Stakeholder-Anforderungen abgeleitet? Welche Drift-Typen sind
+              für jedes System relevant — Covariate Drift bei Input-Features,
+              Label Drift bei späteren Ground-Truth-Daten, Concept Drift bei
+              veränderten Input-Output-Beziehungen?
+            </p>
+            <p>
+              Das wichtigste Artefakt ist das Schwellen-Design: Welcher Wert
+              löst eine Warnung aus, welcher eine Eskalation? Schwellen sind
+              keine Bauchgefühl-Zahlen — sie werden aus Audit-Baselines und
+              etablierten statistischen Verfahren abgeleitet (Population
+              Stability Index, Kolmogorov-Smirnov, Jensen-Shannon-Divergenz).
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Monitoring-Plan nach Art. 72 EU AI Act</li>
+                <li>Schwellen-Definition je Metrik und System</li>
+                <li>Alarmierungs-Architektur</li>
+                <li>Verbindung zur bestehenden Compliance-Dokumentation</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phase B -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">B</p>
+            <p class="wi-phase-duration">Wochen 2–4 · 30–45 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">Pipeline-Implementierung</h3>
+            <p>
+              Wir bauen die technische Monitoring-Pipeline auf — primär mit
+              Alibi Detect für Drift-Detection, Great Expectations für
+              Datenqualitäts-Validierung und Evidently AI bzw. Streamlit für
+              die Dashboards. Die Werkzeuge sind Open Source, DSGVO-konform
+              und können auf Wunsch vollständig in Ihrer Infrastruktur
+              laufen — keine Daten verlassen Ihre Umgebung.
+            </p>
+            <p>
+              Parallel die Bias-Creep-Überwachung: temporale Fairness-Metriken
+              im Vergleich zur Audit-Baseline, intersektionale Stabilität,
+              automatische Alarmierung bei Schwellenüberschreitung. Die
+              Integration in Ihre Produktions- und MLOps-Pipeline erfolgt
+              gemeinsam mit Ihrem Engineering-Team.
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Drift-Detection-Pipeline (Alibi Detect)</li>
+                <li>Datenqualitäts-Pipeline (Great Expectations)</li>
+                <li>Monitoring-Dashboard für Compliance-Funktion</li>
+                <li>Bias-Creep-Alarmierung mit Eskalationslogik</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phase C -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">C</p>
+            <p class="wi-phase-duration">Wochen 4–6 · 15–25 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">Übergabe &amp; Routine-Etablierung</h3>
+            <p>
+              Monitoring ohne Verantwortlichkeiten ist eine Dashboard-Sammlung.
+              Wir definieren mit Ihnen, wer auf welche Alarme reagiert,
+              welcher Quartals-Review-Rhythmus etabliert wird und wie der
+              Bericht für Aufsichtsrat, Investoren oder CSRD-Berichterstattung
+              aufgebaut ist.
+            </p>
+            <p>
+              Mit dem Abschluss von Phase C beginnt der laufende Retainer:
+              monatliche Health-Checks der Monitoring-Pipeline, quartalsweise
+              Compliance-Reviews mit Bericht und jährliche Strategie-Anpassung
+              an Veränderungen der Regulatorik, des Modell-Portfolios oder
+              der Geschäftslogik.
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Eskalationspfade und Verantwortlichkeitsmatrix</li>
+                <li>Quartals-Review-Template für Aufsichtsrat</li>
+                <li>Monitoring-Plan-Dokumentation (Art. 72 EU AI Act)</li>
+                <li>Übergabe in den laufenden Retainer-Betrieb</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Retainer-Block (inline subsection after phases) -->
+      <div style="margin-top: 56px; padding: 40px 44px; background: var(--wi-surface-soft); border-radius: 16px;">
+        <p class="wi-eyebrow" style="margin-bottom: 16px;">Im Retainer enthalten</p>
+        <h3 class="wi-h3" style="margin: 0 0 16px;">Was nach Phase C im monatlichen Rhythmus läuft.</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px;">
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.55;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            <strong>Monatliche Health-Checks</strong> der Monitoring-Pipeline und der definierten Schwellen
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.55;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            <strong>Reaktion auf Alarme</strong> mit dokumentierter Ursachen­analyse und Mitigation-Empfehlung
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.55;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            <strong>Quartalsweiser Compliance-Bericht</strong> für Aufsichtsrat, Investoren oder Rating-Agentur
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.55;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            <strong>Jährliche Strategie-Anpassung</strong> an Regulatorik, Portfolio und Geschäftslogik
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.55;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            <strong>Update der Compliance-Dokumentation</strong> nach Änderungen am Modell oder an den Daten
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.55;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            <strong>Beratung auf Abruf</strong> bei regulatorischen Neuerungen oder Stakeholder-Anfragen
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT FRAMEWORK -->
+  <section class="wi-section" id="tarife" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Investition</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 28ch;">
+        Zwei Retainer-Stufen, klar abgegrenzt.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Das Setup wird einmalig kalkuliert und liegt im Standardfall bei
+        6.000 bis 8.000 €. Der laufende Retainer skaliert mit Anzahl
+        überwachter Systeme und Reporting-Tiefe — für komplexe Portfolios
+        oder regulierte Branchen erstellen wir das Angebot nach einem
+        strukturierten Scoping-Gespräch.
+      </p>
+
+      <div class="wi-services" style="grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px;">
+        <article class="wi-service-card wi-service-card-featured">
+          <span class="wi-service-badge">Standard-Retainer</span>
+          <h3 class="wi-service-title">1–3 Systeme</h3>
+          <p class="wi-service-subtitle">
+            Drift-Detection, Bias-Monitoring, monatlicher Health-Check und
+            quartalsweiser Compliance-Bericht für bis zu drei KI-Systeme.
+            Geeignet für mittelständische Unternehmen mit überschaubarem
+            produktivem Portfolio.
+          </p>
+          <p class="wi-service-price">ab 2.000 €<span style="font-size: 18px;"> / Monat</span></p>
+          <p class="wi-service-meta">Plus einmaliges Setup ab 6.000 €</p>
+        </article>
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">Enterprise · individuell</p>
+          <h3 class="wi-service-title">Portfolio-Monitoring</h3>
+          <p class="wi-service-subtitle">
+            4+ Systeme, regulierte Branchen (Finanz, Medizin, Energie),
+            CSRD-Integration oder Investoren-Reporting mit hoher
+            Update-Frequenz. Retainer und Setup nach Scoping-Gespräch.
+          </p>
+          <p class="wi-service-price" style="font-size: 22px; font-style: italic;">Individuelle Kalkulation</p>
+          <p class="wi-service-meta">Setup &amp; Retainer skalieren mit Komplexität</p>
+        </article>
+      </div>
+
+      <div style="margin-top: 96px;">
+        <p class="wi-eyebrow">Faktoren</p>
+        <h3 class="wi-h2" style="margin-top: 16px; max-width: 28ch; font-size: clamp(22px, 2.4vw, 28px);">
+          Was den Preis bestimmt.
+        </h3>
+        <p class="wi-lead" style="margin-top: 16px; max-width: 60ch; font-size: 16px;">
+          Vier Faktoren skalieren den Aufwand — sie sind die Grundlage jedes
+          Angebots, das nach dem Scoping-Gespräch entsteht.
+        </p>
+
+        <div class="wi-valueprops" style="grid-template-columns: repeat(2, 1fr); gap: 48px 80px; margin-top: 48px;">
+          <div>
+            <div class="wi-step-num">01</div>
+            <h4 class="wi-valueprop-title">Anzahl überwachter Systeme</h4>
+            <p class="wi-valueprop-text">
+              Jedes System hat eigene Metriken, Schwellen, Daten-Pipelines
+              und Eskalationspfade. Der Setup-Aufwand wächst linear mit
+              jedem zusätzlichen System; der Retainer skaliert in Stufen,
+              weil mehrere Systeme gleichzeitig überwacht werden können.
+            </p>
+          </div>
+          <div>
+            <div class="wi-step-num">02</div>
+            <h4 class="wi-valueprop-title">Alarmierungs-Komplexität</h4>
+            <p class="wi-valueprop-text">
+              Standard-Schwellen mit Mail-Alarmierung sind schnell aufgesetzt.
+              Mehrstufige Eskalationen mit Slack-, Teams- oder
+              Ticketing-Integration, Quoren-basierte Entscheidungs-Workflows
+              oder Risk-Scoring-Aggregationen erweitern Setup und Pflege.
+            </p>
+          </div>
+          <div>
+            <div class="wi-step-num">03</div>
+            <h4 class="wi-valueprop-title">Reporting-Tiefe</h4>
+            <p class="wi-valueprop-text">
+              Interner Statusreport für die Compliance-Funktion ist
+              Standard. CSRD-Integration mit ESRS-Mapping, Investor-Reports
+              mit ESG-Score-Beiträgen oder Aufsichtsrats-Vorlagen mit
+              quartalsweiser Strategie-Einordnung erweitern den Aufwand.
+            </p>
+          </div>
+          <div>
+            <div class="wi-step-num">04</div>
+            <h4 class="wi-valueprop-title">Integrations-Tiefe</h4>
+            <p class="wi-valueprop-text">
+              Self-hosted Dashboard auf einer separaten Instanz ist die
+              schnellste Variante. Integration in bestehende
+              Compliance-Plattformen, MLOps-Stacks oder Data-Governance-Tools
+              braucht zusätzliches Engineering — meist einmal im Setup.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 56px; font-size: 13px; color: var(--wi-text-muted); max-width: 70ch;">
+        Bei Bundle-Buchung nach Bias Audit entfällt ein Teil des Setups
+        (–€1.500 typisch), weil Schwellen und Baseline bereits dokumentiert sind.
+        Mindestlaufzeit Retainer: 12 Monate. Alle Preise zzgl. MwSt.
+      </p>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <div class="wi-pullquote">
+        <img class="wi-pullquote-mark" src="waveImpact_logo_mark.svg" alt="">
+        <p class="wi-pullquote-text">Ein Modell, das gestern fair war, ist heute nicht automatisch fair. Wer das ignoriert, riskiert nicht nur regulatorische Probleme — sondern den Vertrauensbruch mit den Menschen, die das System betrifft.</p>
+        <p class="wi-pullquote-attribution">— Dr. Valentin José Mayr · Gründer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Verwandte Leistungen</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Was vor Monitoring Sinn macht.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Monitoring ohne Baseline ist Messung gegen einen unbekannten
+        Ausgangspunkt. Vor dem Setup empfehlen wir entweder ein Readiness
+        Assessment oder ein Bias Audit — je nach Reifegrad Ihrer
+        Vorarbeiten.
+      </p>
+
+      <div class="wi-services" style="margin-top: 48px;">
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">S1 · Verorten</p>
+          <h3 class="wi-service-title">EU AI Act Readiness Assessment</h3>
+          <p class="wi-service-subtitle">
+            Wenn noch unklar ist, welche Systeme überwacht werden müssen:
+            Bestandsaufnahme, Risikoklassifizierung, Priorisierung.
+          </p>
+          <p class="wi-service-price">ab 15.000 €</p>
+          <p class="wi-service-meta">
+            <a href="waveImpact_leistungen_readiness.html" style="color: var(--wi-teal); text-decoration: none; font-weight: 700;">Mehr erfahren →</a>
+          </p>
+        </article>
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">S2 · Prüfen</p>
+          <h3 class="wi-service-title">AI Ethics Audit &amp; Bias Testing</h3>
+          <p class="wi-service-subtitle">
+            Das Audit liefert die Baseline, gegen die das Monitoring später
+            misst. Ohne Baseline keine sinnvollen Drift-Schwellen.
+          </p>
+          <p class="wi-service-price">ab 8.000 €</p>
+          <p class="wi-service-meta">
+            <a href="waveImpact_leistungen_audit.html" style="color: var(--wi-teal); text-decoration: none; font-weight: 700;">Mehr erfahren →</a>
+          </p>
+        </article>
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">S4 · Verstehen</p>
+          <h3 class="wi-service-title">Workshops</h3>
+          <p class="wi-service-subtitle">
+            Wenn Ihr Team das Monitoring später intern weiterführen soll:
+            Technical Team Training zu Drift-Detection und Bias-Metriken.
+          </p>
+          <p class="wi-service-price">ab 3.000 €</p>
+          <p class="wi-service-meta">
+            <a href="waveImpact_leistungen_workshops.html" style="color: var(--wi-teal); text-decoration: none; font-weight: 700;">Mehr erfahren →</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="wi-section" id="kontakt" style="padding-block: 0 112px;">
+    <div class="wi-container">
+      <div class="wi-final-cta">
+        <svg class="wi-final-cta-decor" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round">
+            <path d="M 6 32 C 38 -2, 178 58, 214 36"/>
+            <path d="M 6 68 C 38 32, 178 95, 214 72"/>
+            <path d="M 6 104 C 38 68, 178 132, 214 108"/>
+          </g>
+        </svg>
+        <p class="wi-eyebrow">Konkret werden</p>
+        <h2 class="wi-h2">In 30 Minuten klären wir, ob Monitoring schon der richtige Schritt für Sie ist — oder ein Audit davor sinnvoller wäre.</h2>
+        <div class="wi-final-cta-buttons">
+          <a href="#termin" class="wi-btn wi-btn-light">Erstgespräch buchen <span class="wi-arrow">→</span></a>
+          <a href="#schnellcheck" class="wi-btn wi-btn-outline-light">Monitoring-Reifegrad-Check</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="wi-footer">
+    <div class="wi-footer-inner">
+      <div class="wi-footer-brand">
+        <a href="/" class="wi-footer-logo-link" aria-label="waveImpact — Startseite">
+          <img src="waveImpact_logo_horizontal.svg" alt="waveImpact"
+               width="197" height="32" class="wi-footer-logo">
+        </a>
+        <p class="wi-footer-tagline">
+          Responsible AI Consultancy für werteorientierte Unternehmen.
+          Sitz Bremen, europaweit tätig.
+        </p>
+      </div>
+    </div>
+    <div class="wi-footer-bottom">
+      <span>© 2026 waveImpact GmbH · AG Bremen HRB 42134 HB</span>
+      <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

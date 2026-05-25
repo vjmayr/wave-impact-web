@@ -1,0 +1,327 @@
+/* ==========================================================
+   waveImpact — Query Loop Bridge CSS v1.0
+   ==========================================================
+   Zweck: Bringt WordPress' Standard-Block-Output aus dem
+   Gutenberg-Query-Loop-Block auf das visuelle Pattern der
+   waveImpact-Karten.
+
+   Anwendung: An das Ende von waveImpact_global.css anhängen,
+   oder in Kadence Customizer → Zusätzliches CSS einfügen.
+
+   Voraussetzung: In den Query-Loop-Blocks haben Sie den
+   Group-Container der Post-Template-Items mit der Klasse
+   `wi-article-card` versehen (bzw. `wi-featured-article` für
+   den Sticky-Post-Featured-Block).
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. Standard-Karten im Article-Grid
+   ---------------------------------------------------------- */
+
+.wi-article-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px 28px;
+  background: #fff;
+  border: 1px solid var(--wi-border);
+  border-radius: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.wi-article-card:hover {
+  border-color: var(--wi-teal);
+}
+
+/* Kategorie-Pill — Post-Terms-Block (Categories) */
+.wi-article-card .wp-block-post-terms {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--wi-teal);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+
+.wi-article-card .wp-block-post-terms a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wi-article-card .wp-block-post-terms a:hover {
+  text-decoration: underline;
+}
+
+/* Datums-Eyebrow — Post-Date-Block */
+.wi-article-card .wp-block-post-date {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--wi-text-muted);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.wi-article-card .wp-block-post-date time {
+  color: inherit;
+}
+
+/* Artikel-Titel — Post-Title-Block */
+.wi-article-card .wp-block-post-title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 14px;
+  letter-spacing: -0.005em;
+}
+
+.wi-article-card .wp-block-post-title a {
+  color: var(--wi-text);
+  text-decoration: none;
+}
+
+.wi-article-card .wp-block-post-title a:hover {
+  color: var(--wi-teal);
+}
+
+/* Excerpt — Post-Excerpt-Block */
+.wi-article-card .wp-block-post-excerpt {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.wi-article-card .wp-block-post-excerpt p {
+  margin: 0;
+}
+
+/* Read More — Read-More-Block */
+.wi-article-card .wp-block-read-more,
+.wi-article-card a.wp-block-read-more {
+  color: var(--wi-teal);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  align-self: flex-start;
+  display: inline-block;
+}
+
+.wi-article-card .wp-block-read-more::after {
+  content: " →";
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.wi-article-card .wp-block-read-more:hover {
+  text-decoration: underline;
+}
+
+
+/* ----------------------------------------------------------
+   2. Featured Article (Sticky Post)
+   ---------------------------------------------------------- */
+
+.wi-featured-article {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  padding: 48px 56px;
+  background: var(--wi-surface-soft);
+  border-radius: 20px;
+  align-items: center;
+}
+
+.wi-featured-article .wp-block-post-terms {
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--wi-green);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin: 0 0 20px;
+  line-height: 1.4;
+}
+
+.wi-featured-article .wp-block-post-terms a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wi-featured-article .wp-block-post-date {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--wi-text-muted);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.wi-featured-article .wp-block-post-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.wi-featured-article .wp-block-post-title a {
+  color: var(--wi-text);
+  text-decoration: none;
+}
+
+.wi-featured-article .wp-block-post-title a:hover {
+  color: var(--wi-teal);
+}
+
+.wi-featured-article .wp-block-post-excerpt {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--wi-text-soft);
+  margin: 0 0 24px;
+}
+
+.wi-featured-article .wp-block-read-more {
+  display: inline-block;
+  padding: 12px 22px;
+  background: var(--wi-green);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  align-self: flex-start;
+  line-height: 1.4;
+}
+
+.wi-featured-article .wp-block-read-more::after {
+  content: " →";
+}
+
+/* Featured-Image-Slot (rechte Spalte) */
+.wi-featured-article .wp-block-post-featured-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.wi-featured-article .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ----------------------------------------------------------
+   3. Query-Loop-Wrapper-Layout
+   ---------------------------------------------------------- */
+
+/* Grid-Layout für den Article-Grid Query Loop */
+.wp-block-post-template.is-layout-grid {
+  gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .wp-block-post-template.is-layout-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .wp-block-post-template.is-layout-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .wi-featured-article {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 28px;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   4. Demnächst (Scheduled Posts) — gestrichelter Rand
+   ---------------------------------------------------------- */
+
+.wi-article-card.wi-article-card--upcoming {
+  background: #fff;
+  border: 1px dashed var(--wi-border);
+}
+
+.wi-article-card.wi-article-card--upcoming::before {
+  content: "Demnächst";
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--wi-surface-soft);
+  color: var(--wi-text-muted);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  align-self: flex-start;
+}
+
+.wi-article-card--upcoming .wp-block-post-title a {
+  pointer-events: none;
+  cursor: default;
+}
+
+
+/* ----------------------------------------------------------
+   5. Pagination
+   ---------------------------------------------------------- */
+
+.wp-block-query-pagination {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.wp-block-query-pagination-numbers a,
+.wp-block-query-pagination-numbers .page-numbers {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #fff;
+  border: 1px solid var(--wi-border);
+  border-radius: 8px;
+  color: var(--wi-text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.wp-block-query-pagination-numbers a:hover {
+  border-color: var(--wi-teal);
+  color: var(--wi-teal);
+}
+
+.wp-block-query-pagination-numbers .current {
+  background: var(--wi-green);
+  color: #fff;
+  border-color: var(--wi-green);
+}
+
+.wp-block-query-pagination-previous,
+.wp-block-query-pagination-next {
+  color: var(--wi-teal);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 14px;
+}

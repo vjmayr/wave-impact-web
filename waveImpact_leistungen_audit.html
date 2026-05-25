@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Ethics Audit &amp; Bias Testing — waveImpact</title>
+  <meta name="description" content="Quantitative Prüfung der algorithmischen Fairness Ihrer KI-Systeme. Statistische Bias-Detection, Erklärbarkeit, Datenqualität — mit dokumentierten Methoden nach EU AI Act und ISO 42001. Ab 8.000 €.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="waveImpact_global.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="wi-header">
+    <div class="wi-header-inner">
+      <a href="/" class="wi-header-logo" aria-label="waveImpact — Startseite">
+        <img src="waveImpact_logo_horizontal.svg" alt="waveImpact" width="246" height="40">
+      </a>
+      <nav class="wi-nav" aria-label="Hauptnavigation">
+        <a href="/leistungen" style="color: #1F2937;">Leistungen</a>
+        <a href="/expertise">Expertise</a>
+        <a href="/news">News</a>
+        <a href="/kontakt">Kontakt</a>
+        <a href="/en" class="wi-nav-lang">DE · EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="wi-section" style="padding-block: 80px 32px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">
+        <a href="/leistungen" style="color: var(--wi-text-muted); text-decoration: none;">Leistungen</a>
+        <span style="margin: 0 8px; color: var(--wi-text-muted);">/</span>
+        S2 · Prüfen
+      </p>
+      <h1 class="wi-display" style="margin-top: 20px; max-width: 22ch;">AI Ethics Audit &amp; Bias Testing.</h1>
+      <p class="wi-lead" style="margin-top: 28px; max-width: 60ch;">
+        Wo das Readiness Assessment fragt „Wo stehen wir?", fragt der Audit
+        „Wie verhalten sich unsere Modelle tatsächlich?". Wir messen Fairness
+        quantitativ mit statistischen Methoden, die in der wissenschaftlichen
+        Literatur etabliert sind — und zeigen, wo systematische Unterschiede
+        in algorithmischen Entscheidungen Mitigation brauchen.
+      </p>
+
+      <div class="wi-meta-strip">
+        <div class="wi-meta-strip-item">
+          <p class="wi-meta-strip-label">Investitionsrahmen</p>
+          <p class="wi-meta-strip-value">ab 8.000 €</p>
+        </div>
+        <div class="wi-meta-strip-item">
+          <p class="wi-meta-strip-label">Dauer</p>
+          <p class="wi-meta-strip-value">3–6 Wochen</p>
+        </div>
+        <div class="wi-meta-strip-item">
+          <p class="wi-meta-strip-label">Aufwand</p>
+          <p class="wi-meta-strip-value">60–120 Stunden</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px;">
+        <a href="#kontakt" class="wi-btn wi-btn-primary">Erstgespräch vereinbaren <span class="wi-arrow">→</span></a>
+        <a href="#tarife" class="wi-btn wi-btn-ghost">Zum Investitionsrahmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET CLIENT -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Für wen das passt</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 28ch;">
+        Sie betreiben Modelle, die über Menschen entscheiden.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Der Audit ist der richtige Schritt, wenn Sie konkrete Systeme im
+        Einsatz haben und entweder regulatorisch (Anhang III, Konformitäts­bewertung)
+        oder durch Stakeholder-Druck den Nachweis algorithmischer Fairness
+        liefern müssen — oder selbst Klarheit über das Verhalten Ihrer
+        Modelle wollen.
+      </p>
+
+      <div class="wi-valueprops" style="margin-top: 56px;">
+        <div>
+          <div class="wi-step-num">01</div>
+          <h3 class="wi-valueprop-title">Anwendungsbereich</h3>
+          <p class="wi-valueprop-text">
+            Hochrisiko-Systeme nach Anhang III — Recruiting, Kreditscoring,
+            Empfehlungssysteme, automatisierte Entscheidungen über Personen.
+            Auch GPAI-basierte Anwendungen mit Bias-Potenzial fallen darunter.
+          </p>
+        </div>
+        <div>
+          <div class="wi-step-num">02</div>
+          <h3 class="wi-valueprop-title">Reifegrad</h3>
+          <p class="wi-valueprop-text">
+            Systeme im produktiven Einsatz oder in der Spätentwicklung.
+            Auditfähigkeit setzt trainierte Modelle und verfügbare Test-
+            und Trainingsdatensätze voraus — kein Prototyp-Stadium.
+          </p>
+        </div>
+        <div>
+          <div class="wi-step-num">03</div>
+          <h3 class="wi-valueprop-title">Entscheidungsträger</h3>
+          <p class="wi-valueprop-text">
+            Compliance-Leitung, AI/Data Lead oder Geschäftsführung — häufig,
+            wenn Investoren, Aufsichtsrat oder eine bevorstehende Konformitäts­bewertung
+            das Thema Fairness sichtbar gemacht haben.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 64px; padding: 32px 36px; background: var(--wi-surface-soft); border-radius: 16px;">
+        <p class="wi-eyebrow" style="margin-bottom: 16px;">Schmerzpunkte, die wir adressieren</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;">
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Bias-Vorwurf von außen, interner Beleg fehlt
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Mehrere Modelle, kein einheitlicher Prüfstandard
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Fehlende Methodik für Fairness-Bewertung
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Druck auf algorithmische Transparenz
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            Vorbereitung auf Konformitätsbewertung nach Annex VII
+          </li>
+          <li style="padding-left: 22px; position: relative; font-size: 15px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; top: 8px; width: 12px; height: 2px; background: var(--wi-teal); border-radius: 999px;"></span>
+            ML-Engineering und Compliance arbeiten getrennt
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASES -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow" style="padding-top: 96px;">Vorgehen</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Vier Phasen, methodisch begründet.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Der Audit folgt einer reproduzierbaren Sequenz, die in 3 bis 6
+        Wochen aufeinander aufbaut. Phasen B und C laufen teilweise parallel,
+        weil Mitigations-Strategien bereits während der Bias-Messung erarbeitet
+        werden — die zeitliche Aufteilung ist eine Richtmarke, kein starres Schema.
+      </p>
+
+      <div class="wi-phase-list">
+
+        <!-- Phase A -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">A</p>
+            <p class="wi-phase-duration">Wochen 1–2 · 25–40 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">System-Analyse &amp; Daten-Assessment</h3>
+            <p>
+              Wir lernen die Modelle und ihre Datengrundlage kennen:
+              Architektur, Trainingsdaten, Performance-Metriken,
+              Deployment-Umgebung. Parallel prüfen wir die Repräsentativität
+              der Trainingsdaten — welche demografischen Gruppen sind unter-
+              oder überrepräsentiert? Welche Daten der besonderen Kategorien
+              (Art. 9 DSGVO) werden verarbeitet?
+            </p>
+            <p>
+              Außerdem die Stakeholder-Impact-Analyse: Welche Personengruppen
+              sind von den Modellentscheidungen betroffen? Wo gibt es
+              Feedback-Mechanismen, wo nicht? Wir erstellen ein Profil, mit
+              dem die quantitative Prüfung in Phase B fokussiert ansetzen kann.
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Technical System Profile je Modell</li>
+                <li>Architektur- und Datenfluss-Dokumentation</li>
+                <li>Data Assessment Report (Python-generiert)</li>
+                <li>Stakeholder-Impact-Matrix</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phase B -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">B</p>
+            <p class="wi-phase-duration">Wochen 2–4 · 25–40 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">Bias-Detection &amp; Fairness-Analyse</h3>
+            <p>
+              Quantitative Messung mit etablierten Methoden: statistische
+              Parität, gleiche Fehlerraten, Equalized Odds und individuelle
+              Fairness. Wir nutzen AIF360 und Fairlearn für die
+              Standard-Metriken, plus eigene Python-Skripte für intersektionale
+              Analysen — also für die Frage, ob Bias an Schnittpunkten mehrerer
+              geschützter Merkmale stärker ist als an einzelnen.
+            </p>
+            <p>
+              Parallel die Performance-Disparitäts-Analyse: Unterscheiden
+              sich Genauigkeit, False-Positive- und False-Negative-Raten
+              zwischen demografischen Gruppen? Statistische Signifikanz wird
+              mit Bootstrap-Konfidenzintervallen abgesichert, nicht aus
+              Punkt-Schätzern abgeleitet.
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Bias-Detection-Report (Executive + Technical)</li>
+                <li>Fairness-Metriken über geschützte Merkmale</li>
+                <li>Intersektionale Bias-Analyse</li>
+                <li>Fairness-Dashboard (Python / Streamlit)</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phase C -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">C</p>
+            <p class="wi-phase-duration">Wochen 3–5 · 15–25 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">Risiko-Bewertung &amp; Mitigation-Strategie</h3>
+            <p>
+              Die quantitativen Befunde aus Phase B werden zu einer
+              priorisierten Risiko-Landschaft verdichtet: Welche Bias-Funde
+              haben welches Schadenspotenzial — für betroffene Personen,
+              regulatorische Compliance, Reputation? Hier verbinden sich
+              technische Metriken mit ethischer Beurteilung und rechtlicher
+              Einordnung.
+            </p>
+            <p>
+              Daraus entstehen konkrete Mitigations-Empfehlungen auf drei
+              Ebenen: technisch (Algorithmus-Anpassungen, Re-Sampling,
+              Constrained Learning), prozessual (Human-in-the-Loop, Eskalations­pfade)
+              und governance-seitig (Review-Zyklen, Verantwortlichkeiten).
+              Wir empfehlen nicht das Maximum, sondern das Notwendige —
+              priorisiert nach Risiko und Umsetzbarkeit.
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Ethical Risk Assessment (Wahrscheinlichkeit × Impact)</li>
+                <li>Stakeholder-Harm-Analyse</li>
+                <li>Mitigation-Empfehlungen, priorisiert</li>
+                <li>Implementation Roadmap mit Aufwandsschätzung</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phase D -->
+        <article class="wi-phase">
+          <div class="wi-phase-meta">
+            <p class="wi-phase-num">D</p>
+            <p class="wi-phase-duration">Wochen 4–6 · 15–25 h</p>
+          </div>
+          <div class="wi-phase-body">
+            <h3 class="wi-phase-title">Dokumentation &amp; Compliance-Paket</h3>
+            <p>
+              Aus Phasen A bis C entsteht eine Compliance-Dokumentation, die
+              EU-AI-Act-Anforderungen nach Art. 11 (technische Dokumentation)
+              und Art. 13 (Transparenz) abdeckt. Sie ist so strukturiert, dass
+              sie für eine Konformitätsbewertung nach Annex VII durch eine
+              benannte Stelle weiterverwendet werden kann — keine
+              Rohdaten-Sammlung, sondern eine prüfbare Argumentation.
+            </p>
+            <p>
+              Parallel das Setup für laufendes Monitoring: Welche
+              Fairness-Metriken werden in welchem Rhythmus geprüft? Welche
+              Schwellen lösen welche Eskalationen aus? Damit ist der Audit
+              kein Einmal-Ereignis, sondern der Startpunkt einer
+              fortlaufenden Praxis — die in Service S3 vertieft betrieben
+              werden kann.
+            </p>
+            <div class="wi-phase-deliverables">
+              <p class="wi-phase-deliverables-label">Was am Ende vorliegt</p>
+              <ul>
+                <li>Compliance-Dokumentationspaket (EU AI Act)</li>
+                <li>Audit-Trail- und Änderungs-Protokoll</li>
+                <li>Monitoring &amp; Review Framework</li>
+                <li>Eskalationspfade und Verantwortlichkeitsmatrix</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT FRAMEWORK -->
+  <section class="wi-section" id="tarife" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Investition</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 28ch;">
+        Zwei Engagement-Stufen, klar abgegrenzt.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Der typische Audit prüft ein bis drei Modelle in 3 bis 4 Wochen.
+        Für umfangreiche Portfolios — etwa mehrere Hochrisiko-Systeme aus
+        verschiedenen Geschäftsbereichen, oder Computer-Vision- und
+        NLP-Modelle mit spezialisierter Probing-Methodik — erstellen wir
+        die Kalkulation nach einem strukturierten Scoping-Gespräch.
+      </p>
+
+      <div class="wi-services" style="grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px;">
+        <article class="wi-service-card wi-service-card-featured">
+          <span class="wi-service-badge">Standard-Audit</span>
+          <h3 class="wi-service-title">1–3 Modelle</h3>
+          <p class="wi-service-subtitle">
+            Klassisches ML auf tabularen Daten oder eindeutig abgegrenzte
+            NLP- bzw. CV-Anwendungen. Alle vier Phasen in 3 bis 4 Wochen,
+            mit vollständigem Compliance-Dokumentationspaket.
+          </p>
+          <p class="wi-service-price">ab 8.000 €</p>
+          <p class="wi-service-meta">60–80 Stunden · 3–4 Wochen</p>
+        </article>
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">Enterprise · individuell</p>
+          <h3 class="wi-service-title">Portfolio-Audit</h3>
+          <p class="wi-service-subtitle">
+            Multiple Modelle über mehrere Geschäftsbereiche, generative KI
+            mit komplexer Probing-Methodik, oder Vorbereitung auf
+            Annex-VII-Konformitätsbewertung. Preis und Aufwand nach
+            Scoping-Gespräch.
+          </p>
+          <p class="wi-service-price" style="font-size: 22px; font-style: italic;">Individuelle Kalkulation</p>
+          <p class="wi-service-meta">100+ Stunden · 5+ Wochen</p>
+        </article>
+      </div>
+
+      <div style="margin-top: 96px;">
+        <p class="wi-eyebrow">Faktoren</p>
+        <h3 class="wi-h2" style="margin-top: 16px; max-width: 28ch; font-size: clamp(22px, 2.4vw, 28px);">
+          Was den Preis bestimmt.
+        </h3>
+        <p class="wi-lead" style="margin-top: 16px; max-width: 60ch; font-size: 16px;">
+          Vier Faktoren skalieren den Aufwand — sie sind die Grundlage jedes
+          Angebots, das nach dem Scoping-Gespräch entsteht.
+        </p>
+
+        <div class="wi-valueprops" style="grid-template-columns: repeat(2, 1fr); gap: 48px 80px; margin-top: 48px;">
+          <div>
+            <div class="wi-step-num">01</div>
+            <h4 class="wi-valueprop-title">Anzahl und Verflechtung der Modelle</h4>
+            <p class="wi-valueprop-text">
+              Ein einzelnes Modell ist methodisch schneller geprüft als ein
+              Portfolio aus mehreren Systemen mit Daten- und Output-Abhängigkeiten.
+              Wo Modelle aufeinander aufbauen, vervielfacht sich der
+              Analyse-Aufwand pro System.
+            </p>
+          </div>
+          <div>
+            <div class="wi-step-num">02</div>
+            <h4 class="wi-valueprop-title">Modell-Typ und Methodik</h4>
+            <p class="wi-valueprop-text">
+              Klassisches ML auf tabularen Daten nutzt etablierte Verfahren
+              (AIF360, Fairlearn). Computer Vision, NLP und generative
+              Modelle erfordern spezialisierte Probing-Verfahren, deren
+              Setup methodisch aufwendiger ist.
+            </p>
+          </div>
+          <div>
+            <div class="wi-step-num">03</div>
+            <h4 class="wi-valueprop-title">Anzahl geschützter Merkmale</h4>
+            <p class="wi-valueprop-text">
+              Mehr geschützte Attribute (Geschlecht, Alter, Ethnie,
+              Behinderung, Religion) bedeuten mehr Fairness-Metriken,
+              mehr Gruppen-Vergleiche und vor allem mehr intersektionale
+              Analysen — die kombinatorisch wachsen.
+            </p>
+          </div>
+          <div>
+            <div class="wi-step-num">04</div>
+            <h4 class="wi-valueprop-title">Dokumentationstiefe</h4>
+            <p class="wi-valueprop-text">
+              Interner Statusreport für die Compliance-Funktion vs.
+              vollständiges Konformitätsbewertungs-Dossier für eine benannte
+              Stelle nach Annex VII — der Dokumentationsaufwand unterscheidet
+              sich um den Faktor zwei bis drei.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 56px; font-size: 13px; color: var(--wi-text-muted); max-width: 70ch;">
+        Bei Bundle-Buchung nach Readiness Assessment (–15 %) oder mit
+        anschließendem Continuous Monitoring (–10 %). Alle Preise zzgl.
+        MwSt. Reisekosten nach Aufwand.
+      </p>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <div class="wi-pullquote">
+        <img class="wi-pullquote-mark" src="waveImpact_logo_mark.svg" alt="">
+        <p class="wi-pullquote-text">Wer „fair" sagt, muss messen können. Wer messen will, braucht Methoden, die in der Statistik anerkannt sind — nicht im Marketing.</p>
+        <p class="wi-pullquote-attribution">— Dr. Valentin José Mayr · Gründer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED SERVICES -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Verwandte Leistungen</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Was vor und nach dem Audit Sinn macht.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Der Audit ist die technische Tiefenprüfung. Davor lohnt häufig
+        eine systematische Verortung, danach die Verstetigung — je nach
+        Reifegrad und Geltungsbereich.
+      </p>
+
+      <div class="wi-services" style="margin-top: 48px;">
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">S1 · Verorten</p>
+          <h3 class="wi-service-title">EU AI Act Readiness Assessment</h3>
+          <p class="wi-service-subtitle">
+            Wenn unklar ist, welches Modell auditfähig oder hochrisiko-relevant
+            ist: Bestandsaufnahme, Risikoklassifizierung, Roadmap.
+          </p>
+          <p class="wi-service-price">ab 15.000 €</p>
+          <p class="wi-service-meta">
+            <a href="waveImpact_leistungen_readiness.html" style="color: var(--wi-teal); text-decoration: none; font-weight: 700;">Mehr erfahren →</a>
+          </p>
+        </article>
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">S3 · Verstetigen</p>
+          <h3 class="wi-service-title">Continuous Monitoring</h3>
+          <p class="wi-service-subtitle">
+            Aus dem Audit-Setup wird ein laufendes System: Drift-Detection,
+            Bias-Alarmierung und Quartals-Reviews nach Art. 72 EU AI Act.
+          </p>
+          <p class="wi-service-price">ab 6.000 € Setup</p>
+          <p class="wi-service-meta">
+            <a href="waveImpact_leistungen_monitoring.html" style="color: var(--wi-teal); text-decoration: none; font-weight: 700;">Mehr erfahren →</a>
+          </p>
+        </article>
+        <article class="wi-service-card">
+          <p class="wi-eyebrow" style="margin-bottom: 12px;">S4 · Verstehen</p>
+          <h3 class="wi-service-title">Technical Team Training</h3>
+          <p class="wi-service-subtitle">
+            Wenn Sie das Audit-Wissen intern aufbauen wollen: Hands-on-Workshop
+            zu Bias-Detection, Fairness-Metriken und Python-Tools.
+          </p>
+          <p class="wi-service-price">ab 3.000 €</p>
+          <p class="wi-service-meta">
+            <a href="waveImpact_leistungen_workshops.html" style="color: var(--wi-teal); text-decoration: none; font-weight: 700;">Mehr erfahren →</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="wi-section" id="kontakt" style="padding-block: 0 112px;">
+    <div class="wi-container">
+      <div class="wi-final-cta">
+        <svg class="wi-final-cta-decor" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round">
+            <path d="M 6 32 C 38 -2, 178 58, 214 36"/>
+            <path d="M 6 68 C 38 32, 178 95, 214 72"/>
+            <path d="M 6 104 C 38 68, 178 132, 214 108"/>
+          </g>
+        </svg>
+        <p class="wi-eyebrow">Konkret werden</p>
+        <h2 class="wi-h2">In 30 Minuten klären wir, ob Ihre Modelle audit-bereit sind — und was der nächste Schritt ist.</h2>
+        <div class="wi-final-cta-buttons">
+          <a href="#termin" class="wi-btn wi-btn-light">Erstgespräch buchen <span class="wi-arrow">→</span></a>
+          <a href="#schnellcheck" class="wi-btn wi-btn-outline-light">Audit-Bereitschafts-Check</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="wi-footer">
+    <div class="wi-footer-inner">
+      <div class="wi-footer-brand">
+        <a href="/" class="wi-footer-logo-link" aria-label="waveImpact — Startseite">
+          <img src="waveImpact_logo_horizontal.svg" alt="waveImpact"
+               width="197" height="32" class="wi-footer-logo">
+        </a>
+        <p class="wi-footer-tagline">
+          Responsible AI Consultancy für werteorientierte Unternehmen.
+          Sitz Bremen, europaweit tätig.
+        </p>
+      </div>
+    </div>
+    <div class="wi-footer-bottom">
+      <span>© 2026 waveImpact GmbH · AG Bremen HRB 42134 HB</span>
+      <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

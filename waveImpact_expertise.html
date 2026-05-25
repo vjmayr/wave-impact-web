@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expertise — waveImpact</title>
+  <meta name="description" content="Methodik, die geprüft werden kann: waveTest mit acht Modulen, dokumentierter Engagement-Workflow, EU-AI-Act- und ISO-42001-Abdeckung. Reproduzierbar, open-source-basiert, evidenz-orientiert.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="waveImpact_global.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="wi-header">
+    <div class="wi-header-inner">
+      <a href="/" class="wi-header-logo" aria-label="waveImpact — Startseite">
+        <img src="waveImpact_logo_horizontal.svg" alt="waveImpact" width="246" height="40">
+      </a>
+      <nav class="wi-nav" aria-label="Hauptnavigation">
+        <a href="/leistungen">Leistungen</a>
+        <a href="/expertise" style="color: #1F2937;">Expertise</a>
+        <a href="/news">News</a>
+        <a href="/kontakt">Kontakt</a>
+        <a href="/en" class="wi-nav-lang">DE · EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="wi-section" style="padding-block: 80px 64px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Expertise</p>
+      <h1 class="wi-display" style="margin-top: 20px; max-width: 22ch;">Methodik, die geprüft werden kann.</h1>
+      <p class="wi-lead" style="margin-top: 28px; max-width: 60ch;">
+        Responsible-AI-Beratung ist häufig charisma-getrieben — Berater
+        empfehlen, Kunden glauben oder nicht. waveImpact arbeitet anders.
+        Jede Aussage in einem Audit-Bericht lässt sich auf konkrete Daten,
+        Tests und Werkzeuge zurückführen. Das ist nicht nur Wissenschaft,
+        sondern Voraussetzung dafür, dass externe Prüfer Ihre Compliance-
+        Dokumentation tatsächlich akzeptieren.
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE PRINCIPLES -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Wie wir arbeiten</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Drei Prinzipien machen unsere Arbeit prüfbar.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Methodische Disziplin ist kein Selbstzweck — sie ist die einzige
+        Form von Beratung, die einer späteren Prüfung durch Behörden,
+        Auditoren oder skeptische Stakeholder standhält.
+      </p>
+
+      <div class="wi-valueprops" style="margin-top: 56px;">
+        <div>
+          <div class="wi-step-num">01</div>
+          <h3 class="wi-valueprop-title">Reproduzierbarkeit</h3>
+          <p class="wi-valueprop-text">
+            Jedes Engagement endet mit einem Evidence Archive — der strukturierten
+            Sammlung aller Konfigurationen, Werkzeug-Versionen, Eingabe-Checksummen,
+            Rohausgaben und Interpretations­notizen. Ein externer Prüfer kann
+            von jeder Aussage im Bericht zurück zu den Daten und zum Code gehen,
+            die sie produziert haben.
+          </p>
+        </div>
+        <div>
+          <div class="wi-step-num">02</div>
+          <h3 class="wi-valueprop-title">Open-Source-First</h3>
+          <p class="wi-valueprop-text">
+            Wir bauen auf einem offen lizenzierten Stack — AIF360, Fairlearn,
+            SHAP, Great Expectations, Alibi Detect. Keine Black Boxes, keine
+            Vendor-Lock-ins. Nach unserem Engagement können Sie die Methodik
+            selbst weiterführen oder andere Berater einsetzen, ohne dass etwas
+            in einem proprietären Format gefangen ist.
+          </p>
+        </div>
+        <div>
+          <div class="wi-step-num">03</div>
+          <h3 class="wi-valueprop-title">Beratung trifft Werkzeug</h3>
+          <p class="wi-valueprop-text">
+            Die Werkzeuge messen, die Beraterin interpretiert. Eine
+            Fairness-Metrik ohne fachlichen Kontext ist nutzlos; eine Beraterin
+            ohne Werkzeug ist unzuverlässig. waveTest kombiniert beides
+            systematisch — automatisierte Tests, gefolgt von menschlicher
+            Interpretation, beides separat dokumentiert.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVETEST MODULES -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">waveTest</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 28ch;">
+        Acht Module, eine Methodik.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        waveTest ist die proprietäre Methodik, mit der wir KI-Systeme
+        prüfen — konzipiert als Notebook-basierte Modul-Architektur. Jedes
+        Modul deckt eine prüfbare Eigenschaft ab, alle teilen eine
+        gemeinsame Evidenz- und Bericht-Schicht und können einzeln oder
+        end-to-end ausgeführt werden.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px;">
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Console</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            Engagement-Orchestrierung: lädt Konfigurationen, validiert
+            Eingaben, koordiniert die Modul-Ausführung, archiviert jedes
+            Artefakt. Mehrsprachig DE/EN.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            Click · Pydantic
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Fairness</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            Gruppen- und Einzelfairness: statistische Parität, gleiche
+            Fehlerraten, Equalized Odds, intersektionale Analysen,
+            Mitigation-Trade-off-Studien.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            AIF360 · Fairlearn
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Explain</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            Modell-Erklärbarkeit: globale und lokale Erklärungen,
+            Feature-Wichtigkeit, kontrafaktische Beispiele,
+            zielgruppen-angepasste Renderings.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            SHAP · LIME · DiCE
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">DataQ</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            Datenqualität: Vollständigkeit, Konsistenz, Verteilungsstabilität,
+            Label-Qualität, Repräsentativität gegen Referenzpopulationen.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            Great Expectations · Pandera
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Comply</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            EU-AI-Act-Mapping: regelbasierter Crosswalk von Modul-Ausgaben
+            zu Artikel-Pflichten, YAML-definierte Controls,
+            Dokumentations-Lückenanalyse.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            Custom Python · YAML
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Monitor</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            Post-Deployment-Drift (Kovariate, Label, Concept), Fairness-Creep,
+            schwellenbasierte Alarmierung. Direkter Bezug zu Art. 72 EU AI Act.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            Alibi Detect · Evidently AI
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px solid var(--wi-border); border-radius: 12px; background: #fff;">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Report</p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            Deterministische Bericht-Generation: Executive Summary,
+            technischer Anhang, Evidenz-Index als PDF und HTML in
+            waveImpact-Branding.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            Jupyter · Quarto
+          </p>
+        </article>
+
+        <article style="padding: 28px 24px; border: 1px dashed var(--wi-border); border-radius: 12px; background: var(--wi-surface-soft);">
+          <p style="font-family: var(--wi-font-serif); font-size: 22px; font-weight: 500; color: var(--wi-green); margin: 0 0 12px;">Sustain <span style="font-size: 11px; font-weight: 400; color: var(--wi-text-faint); letter-spacing: 0.06em; text-transform: uppercase; vertical-align: middle;">· in Entwicklung</span></p>
+          <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0 0 12px;">
+            CO₂- und Energie-Tracking jedes Modell-Trainings und
+            Inferenz-Laufs. Anschluss an CSRD- und ESRS-E1-Berichterstattung
+            geplant für 2026/27.
+          </p>
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--wi-teal); margin: 0; text-transform: uppercase;">
+            CodeCarbon · Electricity Maps
+          </p>
+        </article>
+
+      </div>
+
+      <p style="margin-top: 32px; font-size: 13px; color: var(--wi-text-muted); max-width: 70ch;">
+        Unter allen Modulen läuft eine Logging-Framework-Schicht, die
+        Konfigurations-Hashes, Bibliotheks-Versionen, Eingabe-Checksummen,
+        Laufzeiten und Ausgabe-Checksummen strukturiert protokolliert —
+        die Grundlage des Evidence Archives.
+      </p>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT WORKFLOW -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Engagement-Ablauf</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Fünf Phasen, jede mit eigenem Artefakt.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Jedes waveTest-Engagement folgt der gleichen Sequenz — unabhängig
+        davon, ob es ein Bias Audit, ein Readiness Assessment oder ein
+        Monitoring-Setup ist. Jede Phase produziert strukturierte Artefakte,
+        die in die nächste einfließen und im Evidence Archive landen.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 56px;">
+
+        <article style="padding: 28px 20px; background: var(--wi-surface-soft); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 32px; font-weight: 500; color: var(--wi-green); margin: 0 0 8px; line-height: 1;">01</p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 12px; text-transform: uppercase;">Intake</p>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 10px; line-height: 1.3;">Testing Plan</h3>
+          <p style="font-size: 13px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+            System, Zweck, Zielgruppen, geschützte Merkmale, regulatorische
+            Klassifizierung und Test-Batterie. Erster Eintrag im Evidence Archive.
+          </p>
+        </article>
+
+        <article style="padding: 28px 20px; background: var(--wi-surface-soft); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 32px; font-weight: 500; color: var(--wi-green); margin: 0 0 8px; line-height: 1;">02</p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 12px; text-transform: uppercase;">Ingestion</p>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 10px; line-height: 1.3;">DataQ zuerst</h3>
+          <p style="font-size: 13px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+            Modell-Artefakte, Metadaten und Daten laden. DataQ validiert
+            zuerst — bei Qualitätsmängeln pausiert das Engagement zur
+            Daten-Klärung.
+          </p>
+        </article>
+
+        <article style="padding: 28px 20px; background: var(--wi-surface-soft); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 32px; font-weight: 500; color: var(--wi-green); margin: 0 0 8px; line-height: 1;">03</p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 12px; text-transform: uppercase;">Testing</p>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 10px; line-height: 1.3;">Module parallel</h3>
+          <p style="font-size: 13px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+            Fairness, Explain und PerfMon laufen parallel auf den
+            validierten Eingaben. Comply läuft zuletzt und konsumiert die
+            Ausgaben der Vorgänger-Module.
+          </p>
+        </article>
+
+        <article style="padding: 28px 20px; background: var(--wi-surface-soft); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 32px; font-weight: 500; color: var(--wi-green); margin: 0 0 8px; line-height: 1;">04</p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 12px; text-transform: uppercase;">Interpretation</p>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 10px; line-height: 1.3;">Berater-Review</h3>
+          <p style="font-size: 13px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+            Die Beraterin reviewt jede Modul-Ausgabe, schreibt eine
+            klare Interpretation im Kunden-Kontext, identifiziert Befunde
+            und formuliert Empfehlungen — separat archiviert.
+          </p>
+        </article>
+
+        <article style="padding: 28px 20px; background: var(--wi-surface-soft); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 32px; font-weight: 500; color: var(--wi-green); margin: 0 0 8px; line-height: 1;">05</p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 12px; text-transform: uppercase;">Reporting</p>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 10px; line-height: 1.3;">Bericht &amp; Archive</h3>
+          <p style="font-size: 13px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+            Branded PDF mit Executive Summary, technischem Anhang und
+            Evidenz-Index. Zusammen mit dem vollständigen Archive an
+            den Kunden übergeben.
+          </p>
+        </article>
+
+      </div>
+
+      <p style="margin-top: 40px; font-size: 14px; color: var(--wi-text-soft); max-width: 70ch; font-style: italic;">
+        Das Evidence Archive enthält den Testing Plan, die YAML-Konfigurationen,
+        ein gepinntes Environment-Manifest mit Hashes, Eingabe-Checksummen
+        (nicht die Daten selbst — die bleiben beim Kunden), die Rohausgaben
+        jedes Moduls, das Ausführungs-Log, die Interpretations-Notizen und
+        den finalen Bericht. Strukturiert so, dass jede Aussage auf Daten
+        und Code zurückgeführt werden kann.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGULATORY COVERAGE -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Regulatorische Abdeckung</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Was waveTest zu welcher Pflicht beiträgt.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        waveTest erteilt keine Compliance-Verdikte — diese bleiben Sache
+        der provider-seitigen Konformitätsbewertung. Aber waveTest produziert
+        die quantitative Evidenz, die elf Artikel des EU AI Act direkt
+        adressieren, plus Beiträge zu ISO 42001 und DSGVO.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px;">
+
+        <article style="padding: 28px 32px; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 8px; text-transform: uppercase;">Art. 9 · 10 · 11 / Annex IV</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.3;">Risikomanagement, Daten-Governance, technische Dokumentation</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--wi-text-soft); margin: 0;">
+            DataQ-Modul liefert Daten-Governance-Evidenz (Schema, Repräsentativität,
+            Label-Qualität). Report-Modul generiert die test-abhängigen Sektionen
+            der Annex-IV-Dokumentation. Fairness- und Monitor-Ausgaben füttern
+            das Risikoregister.
+          </p>
+        </article>
+
+        <article style="padding: 28px 32px; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 8px; text-transform: uppercase;">Art. 12 · 13 · 14</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.3;">Logging, Transparenz, menschliche Aufsicht</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--wi-text-soft); margin: 0;">
+            Das Logging-Framework erzeugt strukturierte Test-Logs für
+            Traceability. SHAP-Erklärungen aus dem Explain-Modul liefern
+            die Substanz für Transparenz-Dokumentation und ermöglichen
+            substanzielle menschliche Aufsicht.
+          </p>
+        </article>
+
+        <article style="padding: 28px 32px; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 8px; text-transform: uppercase;">Art. 15 · 17 · 27</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.3;">Genauigkeit, QMS, Grundrechte-Folgenabschätzung</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--wi-text-soft); margin: 0;">
+            PerfMon adressiert Genauigkeits- und Robustheits-Anforderungen.
+            Das Evidence Archive integriert sich in das QMS des Kunden.
+            Fairness- und intersektionale Outputs liefern die quantitative
+            Grundlage für die FRIA nach Art. 27.
+          </p>
+        </article>
+
+        <article style="padding: 28px 32px; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 8px; text-transform: uppercase;">Art. 26 · 72</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.3;">Deployer-Pflichten, Post-Market-Monitoring</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--wi-text-soft); margin: 0;">
+            Das Monitor-Modul ist speziell für Art. 72 designed:
+            Drift-Detection, Fairness-Creep, schwellenbasierte
+            Alarmierung, dokumentierte Re-Assessment-Zyklen.
+            Funktioniert auch auf Deployer-Seite.
+          </p>
+        </article>
+
+      </div>
+
+      <div style="margin-top: 40px; padding: 24px 32px; background: var(--wi-surface-soft); border-radius: 12px;">
+        <p style="font-size: 14px; line-height: 1.6; color: var(--wi-text-soft); margin: 0;">
+          <strong>Zusätzliche Frameworks:</strong> Mehrere Annex-A-Controls
+          von <strong>ISO/IEC 42001:2023</strong> werden direkt unterstützt
+          (erwartete harmonisierte Norm für AI-Act-Konformitätsbewertung).
+          Datenverarbeitung erfolgt DSGVO-konform mit Art.-28-AVV pro
+          Engagement. Sektor-Rahmen wie <strong>ESRS E1/S4</strong> für CSRD-Berichte
+          und <strong>AGG</strong> für anti-diskriminierungs-rechtliche
+          Einordnung werden in der Beratung mitgedacht.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-PUNKTE-SCHNELL-CHECK -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Selbstprüfung</p>
+      <h2 class="wi-h2" style="margin-top: 16px; max-width: 32ch;">
+        Fünf Fragen — drei Reifestufen.
+      </h2>
+      <p class="wi-lead" style="margin-top: 16px; max-width: 60ch;">
+        Bevor Sie ein Erstgespräch buchen: prüfen Sie für sich, wo Ihr
+        Unternehmen steht. Die fünf Fragen decken die Grundlagen einer
+        belastbaren KI-Governance ab.
+      </p>
+
+      <div style="margin-top: 56px; display: grid; gap: 16px;">
+
+        <article style="display: grid; grid-template-columns: 64px 1fr auto; gap: 24px; align-items: center; padding: 24px 32px; background: #fff; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 36px; font-weight: 500; color: var(--wi-green); margin: 0; line-height: 1;">01</p>
+          <p style="font-size: 16px; line-height: 1.5; margin: 0;">
+            Haben Sie ein vollständiges Inventar aller KI-Systeme in Ihrem Unternehmen?
+          </p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0; text-transform: uppercase; padding: 6px 14px; background: var(--wi-surface-soft); border-radius: 999px;">Transparenz</p>
+        </article>
+
+        <article style="display: grid; grid-template-columns: 64px 1fr auto; gap: 24px; align-items: center; padding: 24px 32px; background: #fff; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 36px; font-weight: 500; color: var(--wi-green); margin: 0; line-height: 1;">02</p>
+          <p style="font-size: 16px; line-height: 1.5; margin: 0;">
+            Ist für jedes System die Risikoklassifizierung nach EU AI Act dokumentiert?
+          </p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0; text-transform: uppercase; padding: 6px 14px; background: var(--wi-surface-soft); border-radius: 999px;">Regulatorik</p>
+        </article>
+
+        <article style="display: grid; grid-template-columns: 64px 1fr auto; gap: 24px; align-items: center; padding: 24px 32px; background: #fff; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 36px; font-weight: 500; color: var(--wi-green); margin: 0; line-height: 1;">03</p>
+          <p style="font-size: 16px; line-height: 1.5; margin: 0;">
+            Gibt es einen dokumentierten Abgleich zwischen KI-Ergebnissen und Ihren Unternehmenswerten?
+          </p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0; text-transform: uppercase; padding: 6px 14px; background: var(--wi-surface-soft); border-radius: 999px;">Kohärenz</p>
+        </article>
+
+        <article style="display: grid; grid-template-columns: 64px 1fr auto; gap: 24px; align-items: center; padding: 24px 32px; background: #fff; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 36px; font-weight: 500; color: var(--wi-green); margin: 0; line-height: 1;">04</p>
+          <p style="font-size: 16px; line-height: 1.5; margin: 0;">
+            Sind Verantwortlichkeiten für KI-Governance auf Geschäftsführungsebene benannt?
+          </p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0; text-transform: uppercase; padding: 6px 14px; background: var(--wi-surface-soft); border-radius: 999px;">Governance</p>
+        </article>
+
+        <article style="display: grid; grid-template-columns: 64px 1fr auto; gap: 24px; align-items: center; padding: 24px 32px; background: #fff; border: 1px solid var(--wi-border); border-radius: 12px;">
+          <p style="font-family: var(--wi-font-serif); font-size: 36px; font-weight: 500; color: var(--wi-green); margin: 0; line-height: 1;">05</p>
+          <p style="font-size: 16px; line-height: 1.5; margin: 0;">
+            Ist KI-Governance Teil Ihres aktuellen Nachhaltigkeitsberichts?
+          </p>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0; text-transform: uppercase; padding: 6px 14px; background: var(--wi-surface-soft); border-radius: 999px;">ESG-Integration</p>
+        </article>
+
+      </div>
+
+      <div style="margin-top: 48px;">
+        <p class="wi-eyebrow" style="margin-bottom: 24px;">Drei Reifestufen</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div style="padding: 24px; background: var(--wi-surface-soft); border-radius: 12px;">
+            <p style="font-family: var(--wi-font-serif); font-size: 14px; font-weight: 500; color: var(--wi-teal); letter-spacing: 0.04em; margin: 0 0 8px;">0–1 von 5</p>
+            <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 10px;">Startpunkt</h4>
+            <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+              KI-Governance ist noch kein Thema. Die Grundlagen fehlen.
+              Empfehlung: Inventar erstellen, Erstgespräch mit waveImpact.
+            </p>
+          </div>
+          <div style="padding: 24px; background: var(--wi-surface-soft); border-radius: 12px;">
+            <p style="font-family: var(--wi-font-serif); font-size: 14px; font-weight: 500; color: var(--wi-teal); letter-spacing: 0.04em; margin: 0 0 8px;">2–3 von 5</p>
+            <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 10px;">Aufbauen</h4>
+            <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+              Einzelne Elemente existieren, aber kein kohärenter Rahmen.
+              Empfehlung: Werte-Abgleich durchführen, Governance-Verantwortung klären.
+            </p>
+          </div>
+          <div style="padding: 24px; background: var(--wi-surface-soft); border-radius: 12px;">
+            <p style="font-family: var(--wi-font-serif); font-size: 14px; font-weight: 500; color: var(--wi-teal); letter-spacing: 0.04em; margin: 0 0 8px;">4–5 von 5</p>
+            <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 10px;">Prüfbar</h4>
+            <p style="font-size: 14px; line-height: 1.55; color: var(--wi-text-soft); margin: 0;">
+              Solide Basis vorhanden. Empfehlung: ESG-Integration finalisieren,
+              externes Review erwägen, Audit-Vorbereitung beginnen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER PROFILE -->
+  <section class="wi-section" style="padding-block: 96px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Über den Gründer</p>
+      <div style="display: grid; grid-template-columns: 280px 1fr; gap: 64px; margin-top: 16px; align-items: start;">
+
+        <div>
+          <div style="aspect-ratio: 1; background: var(--wi-surface-soft); border-radius: 16px; display: flex; align-items: center; justify-content: center; padding: 40px;">
+            <img src="waveImpact_logo_mark.svg" alt="" style="width: 80%; opacity: 0.4;">
+          </div>
+          <p style="font-size: 12px; color: var(--wi-text-faint); margin: 12px 0 0; text-align: center; font-style: italic;">Foto folgt</p>
+        </div>
+
+        <div>
+          <h2 class="wi-h2" style="margin-top: 0; max-width: 28ch;">Dr. Valentin José Mayr</h2>
+          <p style="font-family: var(--wi-font-serif); font-size: 18px; font-style: italic; color: var(--wi-green); margin: 8px 0 24px;">
+            Gründer &amp; Geschäftsführer
+          </p>
+
+          <p style="font-size: 17px; line-height: 1.6; color: var(--wi-text-soft); margin: 0 0 20px;">
+            Doctor of Business Administration (Data Science),
+            IHK-zertifizierter AI Compliance Manager, mit mehr als 25 Jahren
+            Erfahrung in der digitalen Transformation. Gründer der
+            waveImpact GmbH in Bremen Anfang 2025.
+          </p>
+
+          <p style="font-size: 17px; line-height: 1.6; color: var(--wi-text-soft); margin: 0 0 20px;">
+            Der methodische Ansatz von waveImpact verbindet zwei Welten,
+            die in der Praxis häufig getrennt sind: wissenschaftliche
+            Methodik aus der Data-Science-Forschung mit der Praxis der
+            Compliance-Beratung und Unternehmens­führung. Aus der Kombination
+            entsteht eine Beratung, die methodisch belastbar ist —
+            reproduzierbar, dokumentiert, evidenz-orientiert — und
+            gleichzeitig im konkreten Kunden-Kontext anwendbar bleibt.
+          </p>
+
+          <div style="margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; padding: 24px 28px; background: var(--wi-surface-soft); border-radius: 12px;">
+            <div>
+              <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 4px; text-transform: uppercase;">Qualifikation</p>
+              <p style="font-size: 14px; line-height: 1.5; margin: 0;">DBA Data Science · IHK AI Compliance Manager</p>
+            </div>
+            <div>
+              <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 4px; text-transform: uppercase;">Erfahrung</p>
+              <p style="font-size: 14px; line-height: 1.5; margin: 0;">25+ Jahre digitale Transformation</p>
+            </div>
+            <div>
+              <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 4px; text-transform: uppercase;">Haftpflicht</p>
+              <p style="font-size: 14px; line-height: 1.5; margin: 0;">2 Mio. € Berufshaftpflicht</p>
+            </div>
+            <div>
+              <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--wi-teal); margin: 0 0 4px; text-transform: uppercase;">Register</p>
+              <p style="font-size: 14px; line-height: 1.5; margin: 0;">AG Bremen HRB 42134 HB</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="mailto:info@waveimpact.de" class="wi-btn wi-btn-ghost">info@waveimpact.de</a>
+            <a href="https://linkedin.com/in/valentinmayr" class="wi-btn wi-btn-ghost">LinkedIn</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="wi-section" style="padding-block: 0 96px;">
+    <div class="wi-container">
+      <div class="wi-pullquote">
+        <img class="wi-pullquote-mark" src="waveImpact_logo_mark.svg" alt="">
+        <p class="wi-pullquote-text">Eine Methodik, die nicht reproduziert werden kann, ist Marketing. Eine Methodik, die reproduziert werden kann, ist Wissenschaft — und nur die zweite hilft Ihnen, wenn die Aufsichtsbehörde fragt.</p>
+        <p class="wi-pullquote-attribution">— Dr. Valentin José Mayr · Gründer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="wi-section" id="kontakt" style="padding-block: 0 112px;">
+    <div class="wi-container">
+      <div class="wi-final-cta">
+        <svg class="wi-final-cta-decor" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round">
+            <path d="M 6 32 C 38 -2, 178 58, 214 36"/>
+            <path d="M 6 68 C 38 32, 178 95, 214 72"/>
+            <path d="M 6 104 C 38 68, 178 132, 214 108"/>
+          </g>
+        </svg>
+        <p class="wi-eyebrow">Konkret werden</p>
+        <h2 class="wi-h2">In 30 Minuten klären wir, ob waveTest auf Ihre Modelle anwendbar ist — oder ob ein Readiness Assessment davor sinnvoll ist.</h2>
+        <div class="wi-final-cta-buttons">
+          <a href="#termin" class="wi-btn wi-btn-light">Erstgespräch buchen <span class="wi-arrow">→</span></a>
+          <a href="#whitepaper" class="wi-btn wi-btn-outline-light">waveTest-Whitepaper anfordern</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="wi-footer">
+    <div class="wi-footer-inner">
+      <div class="wi-footer-brand">
+        <a href="/" class="wi-footer-logo-link" aria-label="waveImpact — Startseite">
+          <img src="waveImpact_logo_horizontal.svg" alt="waveImpact"
+               width="197" height="32" class="wi-footer-logo">
+        </a>
+        <p class="wi-footer-tagline">
+          Responsible AI Consultancy für werteorientierte Unternehmen.
+          Sitz Bremen, europaweit tätig.
+        </p>
+      </div>
+    </div>
+    <div class="wi-footer-bottom">
+      <span>© 2026 waveImpact GmbH · AG Bremen HRB 42134 HB</span>
+      <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

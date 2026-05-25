@@ -1,0 +1,313 @@
+/* =============================================================
+   waveImpact — Custom CSS für Kadence Theme
+   Einfügen unter: Appearance → Customize → Additional CSS
+   (oder: Kadence → Customizer → Global Custom CSS)
+
+   Voraussetzungen:
+   - Lato als Body-Font geladen (Customize → Typography → Body)
+   - Lora als Heading-Alternative für Pull-Quote (optional)
+   ============================================================= */
+
+
+/* ---- 1. Brand-Farben als CSS-Variablen ---- */
+:root {
+  --wi-green:        #059669;
+  --wi-green-dark:   #047857;
+  --wi-teal:         #0D9488;
+  --wi-teal-light:   #2DD4BF;
+  --wi-text:         #1F2937;
+  --wi-text-soft:    #4B5563;
+  --wi-text-muted:   #9CA3AF;
+  --wi-border:       rgba(31, 41, 55, 0.10);
+  --wi-surface-soft: #F9FAFB;
+}
+
+
+/* ---- 2. Eyebrow-Label (Sektions-Überschriften) ---- */
+.wi-eyebrow {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: var(--wi-teal) !important;
+  letter-spacing: 0.12em !important;
+  margin: 0 0 12px !important;
+  text-transform: none;
+}
+
+
+/* ---- 3. Accent-Wort im H1 ---- */
+.wi-accent {
+  color: var(--wi-green);
+}
+
+
+/* ---- 4. Big Number (Stat-Strip) ---- */
+.wi-big-num {
+  font-family: 'Lora', 'Georgia', serif !important;
+  font-size: 44px !important;
+  font-weight: 500 !important;
+  color: var(--wi-green) !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+.wi-stat-label {
+  font-size: 12px !important;
+  color: var(--wi-text-soft) !important;
+  margin: 8px 0 0 !important;
+  line-height: 1.4 !important;
+}
+
+
+/* ---- 5. Step-Nummern (01, 02, 03 für Value-Props) ---- */
+.wi-step-num {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--wi-green) !important;
+  margin: 0 0 8px !important;
+  letter-spacing: 0.02em;
+}
+
+
+/* ---- 6. Timeline-Pillen ---- */
+.wi-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-align: center;
+  min-width: 90px;
+  line-height: 1.5;
+}
+.wi-pill-neutral { background: #F3F4F6; color: #6B7280; }
+.wi-pill-warning { background: #FEF3C7; color: #92400E; }
+.wi-pill-info    { background: #DBEAFE; color: #1E40AF; }
+
+.wi-timeline-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.wi-timeline-row p { margin: 0 !important; font-size: 14px !important; }
+.wi-timeline-note { color: var(--wi-text-soft) !important; }
+
+
+/* ---- 7. Service-Card mit Akzent ---- */
+.wi-service-card {
+  background: white;
+  border: 1px solid var(--wi-border);
+  border-radius: 12px;
+  padding: 24px;
+  height: 100%;
+}
+.wi-service-card-featured {
+  border: 2px solid var(--wi-green) !important;
+  position: relative;
+}
+.wi-badge-featured {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--wi-green);
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+.wi-service-title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--wi-text) !important;
+  margin: 0 0 4px !important;
+}
+.wi-service-subtitle {
+  font-size: 12px !important;
+  color: var(--wi-text-soft) !important;
+  margin: 0 0 18px !important;
+}
+.wi-price {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--wi-green) !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+.wi-duration {
+  font-size: 11px !important;
+  color: var(--wi-text-muted) !important;
+  margin: 4px 0 0 !important;
+}
+
+
+/* ---- 8. Pull-Quote-Sektion ---- */
+.wi-pullquote {
+  background: var(--wi-surface-soft);
+  border-radius: 16px;
+  padding: 3rem 2rem 3rem 4.5rem;
+  position: relative;
+  margin: 2rem 0;
+}
+.wi-pullquote-mark {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  width: 44px;
+  height: auto;
+  opacity: 0.3;
+}
+.wi-pullquote-text {
+  font-family: 'Lora', 'Georgia', serif !important;
+  font-size: 22px !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+  color: var(--wi-text) !important;
+  margin: 0 0 12px !important;
+  max-width: 540px;
+}
+.wi-pullquote-attribution {
+  font-size: 12px !important;
+  color: var(--wi-text-muted) !important;
+  margin: 0 !important;
+}
+
+
+/* ---- 9. Schluss-CTA (grüner Block) ---- */
+.wi-final-cta {
+  background: var(--wi-green) !important;
+  color: white;
+  padding: 3rem 2.5rem !important;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+.wi-final-cta h2,
+.wi-final-cta h1,
+.wi-final-cta p { color: white !important; }
+.wi-final-cta .wi-eyebrow {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.wi-final-cta-decor {
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 240px;
+  opacity: 0.14;
+  pointer-events: none;
+}
+.wi-final-cta-headline {
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  margin: 0 0 1.5rem !important;
+  max-width: 460px;
+  line-height: 1.25 !important;
+  color: white !important;
+}
+
+/* Buttons im CTA-Block */
+.wi-btn-light .kb-btn,
+.wi-btn-light a {
+  background: white !important;
+  color: var(--wi-green) !important;
+  border: none !important;
+}
+.wi-btn-outline-light .kb-btn,
+.wi-btn-outline-light a {
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+
+/* ---- 10. Generelle Brand-Buttons ---- */
+.wi-btn-primary .kb-btn,
+.wi-btn-primary a.wp-block-button__link {
+  background: var(--wi-green) !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 22px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+.wi-btn-primary .kb-btn:hover,
+.wi-btn-primary a.wp-block-button__link:hover {
+  background: var(--wi-green-dark) !important;
+}
+
+.wi-btn-ghost .kb-btn,
+.wi-btn-ghost a.wp-block-button__link {
+  background: transparent !important;
+  color: var(--wi-text) !important;
+  border: 1px solid var(--wi-border) !important;
+  padding: 12px 22px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+
+/* ---- 11. Stat-Strip Layout ---- */
+.wi-stat-strip {
+  padding: 2rem 0;
+  border-top: 1px solid var(--wi-border);
+  border-bottom: 1px solid var(--wi-border);
+}
+
+
+/* ---- 12. H1 / H2 Größen-Override für die Startseite ---- */
+.wi-hero-headline {
+  font-size: 38px !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+  margin: 0 0 18px !important;
+  letter-spacing: -0.01em !important;
+  color: var(--wi-text) !important;
+}
+.wi-hero-subline {
+  font-size: 15px !important;
+  color: var(--wi-text-soft) !important;
+  line-height: 1.6 !important;
+  margin: 0 0 26px !important;
+  max-width: 380px;
+}
+
+
+/* ---- 13. Sektions-Abstände ---- */
+.wi-section { padding: 3rem 0; }
+.wi-section-heading {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  margin: 0 0 1.5rem !important;
+  line-height: 1.25 !important;
+}
+
+
+/* ---- 14. Mobile-Anpassungen ---- */
+@media (max-width: 768px) {
+  .wi-hero-headline { font-size: 30px !important; }
+  .wi-big-num { font-size: 36px !important; }
+  .wi-pullquote {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+  .wi-pullquote-mark {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  .wi-pullquote-text {
+    font-size: 18px !important;
+    padding-left: 0 !important;
+  }
+  .wi-pullquote-attribution { padding-left: 0 !important; }
+  .wi-final-cta { padding: 2rem 1.5rem !important; }
+  .wi-final-cta-headline { font-size: 22px !important; }
+  .wi-timeline-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

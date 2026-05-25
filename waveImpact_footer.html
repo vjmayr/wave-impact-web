@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>waveImpact — Footer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       Footer — waveImpact
+       Logo + Wortmarke sind ein einziges SVG;
+       keine Inline-Ausrichtung mehr nötig.
+       ============================================ */
+
+    .wi-footer {
+      padding: 64px 0 40px;
+      border-top: 1px solid rgba(31, 41, 55, 0.10);
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #FFFFFF;
+    }
+
+    .wi-footer-container {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 32px;
+    }
+
+    .wi-footer-brand {
+      max-width: 460px;
+    }
+
+    .wi-footer-logo-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      line-height: 0;
+    }
+
+    .wi-footer-logo {
+      display: block;
+      width: 197px;   /* 32 px Höhe × 6,159 Seitenverhältnis */
+      height: 32px;
+      max-width: 100%;
+    }
+
+    .wi-footer-tagline {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #6B7280;
+    }
+
+    /* Optional bottom bar */
+    .wi-footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 24px 32px 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.06);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: #9CA3AF;
+    }
+    .wi-footer-bottom a { color: inherit; text-decoration: none; }
+    .wi-footer-bottom a:hover { color: #4B5563; }
+
+    @media (max-width: 640px) {
+      .wi-footer { padding: 48px 0 32px; }
+      .wi-footer-tagline { font-size: 14px; }
+    }
+
+    body { margin: 0; }
+    .demo-spacer {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9CA3AF;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo content above the footer (remove when integrating) -->
+  <div class="demo-spacer">— Vorschau der Footer-Sektion —</div>
+
+  <!-- ============================================
+       FOOTER — copy this block into your page
+       ============================================ -->
+  <footer class="wi-footer">
+    <div class="wi-footer-container">
+      <div class="wi-footer-brand">
+        <a href="/" class="wi-footer-logo-link" aria-label="waveImpact — Startseite">
+          <img
+            src="waveImpact_logo_horizontal.svg"
+            alt="waveImpact"
+            width="197"
+            height="32"
+            class="wi-footer-logo"
+          >
+        </a>
+        <p class="wi-footer-tagline">
+          Responsible AI Consultancy für werteorientierte Unternehmen.
+          Sitz Bremen, europaweit tätig.
+        </p>
+      </div>
+    </div>
+
+    <div class="wi-footer-bottom">
+      <span>© 2026 waveImpact GmbH · AG Bremen HRB 42134 HB</span>
+      <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

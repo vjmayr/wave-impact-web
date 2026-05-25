@@ -1,0 +1,141 @@
+/* ==========================================================
+   waveImpact — Spacing Corrections v1.2
+   ==========================================================
+   Zweck: Reduziert die Abstände zwischen Sektionen sowie
+   zwischen Header und erster Sektion.
+
+   v1.2 — Robuster Ansatz mit :has() statt Attribute-Selektoren.
+   Funktioniert unabhängig davon, ob die Inline-Styles in den
+   HTML-Sektionen noch vorhanden sind (was bei Kadence-Native-
+   Blöcken oft nicht der Fall ist).
+
+   Anwendung:
+   A) An das Ende von waveImpact_global.css anhängen (empfohlen)
+   B) Bei Kadence: Customizer → Zusätzliches CSS → einfügen
+
+   Hinweis: Die Regeln nutzen !important, um auch bei
+   konkurrierenden Inline-Styles oder Kadence-Row-Settings
+   zu greifen.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. Basis-Sektion-Padding für alle Sektionen
+   Reduziert das Standard-Padding von 96px auf 56px.
+   ---------------------------------------------------------- */
+
+.wi-section {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+}
+
+
+/* ----------------------------------------------------------
+   2. Hero-Sektionen erkennen — sie enthalten die große
+   Display-Überschrift .wi-display
+   ---------------------------------------------------------- */
+
+.wi-section:has(.wi-display) {
+  padding-top: 48px !important;
+  padding-bottom: 16px !important;
+}
+
+
+/* ----------------------------------------------------------
+   3. Pull-Quote-Sektionen erkennen — sie enthalten .wi-pullquote
+   Diese Sektionen sollen oben an die vorherige Sektion stoßen
+   (Null-Top), aber mit normalem Bottom-Padding.
+   ---------------------------------------------------------- */
+
+.wi-section:has(.wi-pullquote) {
+  padding-top: 0 !important;
+  padding-bottom: 56px !important;
+}
+
+
+/* ----------------------------------------------------------
+   4. Final-CTA-Sektionen erkennen — sie enthalten .wi-final-cta
+   ---------------------------------------------------------- */
+
+.wi-section:has(.wi-final-cta) {
+  padding-top: 0 !important;
+  padding-bottom: 72px !important;
+}
+
+
+/* ----------------------------------------------------------
+   5. Header — leicht kompakter
+   ---------------------------------------------------------- */
+
+.wi-header {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+
+/* ----------------------------------------------------------
+   6. Mobile Breakpoint — noch kompakter
+   ---------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .wi-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .wi-section:has(.wi-display) {
+    padding-top: 32px !important;
+    padding-bottom: 12px !important;
+  }
+  .wi-section:has(.wi-final-cta) {
+    padding-bottom: 56px !important;
+  }
+  .wi-section:has(.wi-pullquote) {
+    padding-bottom: 40px !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   7. Browser-Kompatibilitäts-Fallback
+   :has() wird in allen modernen Browsern unterstützt
+   (Chrome 105+, Safari 15.4+, Firefox 121+).
+   Für ältere Browser wirken die Hauptregel (.wi-section)
+   und der Header-Override trotzdem — die spezifischen
+   Sektion-Typen bekommen dann das Basis-Padding (56px).
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   Diagnose-Tipp
+   ----------------------------------------------------------
+   Falls die Override-CSS nach dem Einfügen keinen Effekt hat,
+   prüfen Sie in den Browser-DevTools:
+
+   1. Rechtsklick auf eine Sektion → "Untersuchen"
+   2. In der "Styles"-Spalte nach .wi-section-Regeln suchen
+   3. Steht "padding-top: 56px !important" durchgestrichen
+      oben? → Eine spätere Regel überschreibt sie
+   4. Steht die Regel gar nicht? → CSS wird nicht geladen
+      (Cache leeren mit Strg+Shift+R)
+   5. Steht die Regel und aktiv, aber sieht trotzdem nicht
+      kompakter aus? → Wahrscheinlich addiert Kadence noch
+      eigenes Row-Padding obendrauf (siehe nächster Punkt)
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   Falls Kadence-Row-Padding zusätzlich greift:
+   ----------------------------------------------------------
+   Sollte Kadence sein eigenes Row-Padding hinzufügen, das
+   sich mit dem Sektion-Padding summiert, können Sie es per
+   CSS auf 0 setzen. Aktivieren Sie diese Regel nur, wenn
+   nötig — sie könnte andere Kadence-Sektionen beeinflussen.
+
+   .kadence-row-layout-inner {
+     padding-top: 0 !important;
+     padding-bottom: 0 !important;
+   }
+
+   Alternativ jede einzelne Row im Kadence-Editor anpassen:
+   Row-Settings → Spacing → Padding → Top/Bottom = 0
+   ========================================================== */

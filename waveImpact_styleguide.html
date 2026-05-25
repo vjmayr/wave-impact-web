@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>waveImpact — Style Guide</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <!-- The single source of truth, loaded externally -->
+  <link rel="stylesheet" href="waveImpact_global.css">
+
+  <style>
+    /* Style-Guide-only annotations — not part of the global CSS */
+    body {
+      margin: 0;
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1F2937;
+    }
+    .sg-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.06);
+    }
+    .sg-row { margin-bottom: 64px; }
+    .sg-row:last-child { margin-bottom: 0; }
+    .sg-swatches {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .sg-toc {
+      max-width: 1200px;
+      margin: 32px auto 48px;
+      padding: 24px 32px;
+      background: #F9FAFB;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+    .sg-toc h2 {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #6B7280;
+    }
+    .sg-toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 3;
+      column-gap: 32px;
+    }
+    .sg-toc li { margin-bottom: 6px; break-inside: avoid; }
+    .sg-toc a {
+      color: #4B5563;
+      text-decoration: none;
+    }
+    .sg-toc a:hover { color: #059669; }
+    .sg-bg-dark {
+      background: #1F2937;
+      padding: 32px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER (reusable across all pages)
+       ============================================ -->
+  <header class="wi-header">
+    <div class="wi-header-inner">
+      <a href="/" class="wi-header-logo" aria-label="waveImpact — Startseite">
+        <img src="waveImpact_logo_horizontal.svg" alt="waveImpact" width="246" height="40">
+      </a>
+      <nav class="wi-nav" aria-label="Hauptnavigation">
+        <a href="/leistungen">Leistungen</a>
+        <a href="/expertise">Expertise</a>
+        <a href="/news">News</a>
+        <a href="/kontakt">Kontakt</a>
+        <a href="/en" class="wi-nav-lang">DE · EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Style-Guide-Hero -->
+  <section class="wi-section" style="padding-block: 80px 32px;">
+    <div class="wi-container">
+      <p class="wi-eyebrow">Style Guide · waveImpact_global.css</p>
+      <h1 class="wi-display">Visuelles System.<br>Eine Datei, alle Seiten.</h1>
+      <p class="wi-lead" style="margin-top: 24px; max-width: 60ch;">
+        Diese Seite lädt die finale globale CSS und rendert jede Komponente in
+        ihrem echten Kontext. Wenn alles hier korrekt aussieht, sind die
+        Folgeseiten reine Inhaltsarbeit — Sie verwenden dieselben Klassen.
+      </p>
+    </div>
+  </section>
+
+  <!-- TOC -->
+  <div class="sg-toc">
+    <h2>Komponenten</h2>
+    <ol>
+      <li><a href="#typografie">1. Typografie</a></li>
+      <li><a href="#buttons">2. Buttons</a></li>
+      <li><a href="#pills">3. Pills</a></li>
+      <li><a href="#statstrip">4. Stat-Strip</a></li>
+      <li><a href="#valueprops">5. Value-Props</a></li>
+      <li><a href="#pullquote">6. Pull-Quote</a></li>
+      <li><a href="#timeline">7. Timeline</a></li>
+      <li><a href="#services">8. Service-Cards</a></li>
+      <li><a href="#diff">9. Differentiators</a></li>
+      <li><a href="#cta">10. Final-CTA</a></li>
+      <li><a href="#footer">11. Footer (unten)</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. Typografie -->
+  <section id="typografie" class="wi-section" style="padding-block: 56px;">
+    <div class="wi-container">
+      <p class="sg-label">1 · Typografie</p>
+
+      <div class="sg-row">
+        <p class="wi-eyebrow">.wi-eyebrow — Sektions-Label, 12 px, Teal, gesperrt</p>
+      </div>
+
+      <div class="sg-row">
+        <h1 class="wi-display">.wi-display — Display-Headline mit <span class="wi-accent">Akzent</span></h1>
+      </div>
+
+      <div class="sg-row">
+        <h2 class="wi-h2">.wi-h2 — Sektionsüberschrift</h2>
+      </div>
+
+      <div class="sg-row">
+        <h3 class="wi-h3">.wi-h3 — Komponenten-Überschrift</h3>
+      </div>
+
+      <div class="sg-row">
+        <p class="wi-lead">.wi-lead — Lead-Absatz, 17–20 px, weicher Grauton, generöser Zeilenabstand für leichtes Lesen.</p>
+      </div>
+
+      <div class="sg-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px;">
+        <div>
+          <div class="wi-big-num">25<span style="font-size: 0.6em; vertical-align: 0.2em;">+</span></div>
+          <p class="wi-stat-label">.wi-big-num — Serif-Zahl für Stat-Strip</p>
+        </div>
+        <div>
+          <div class="wi-step-num">01</div>
+          <p style="color: #4B5563; font-size: 14px;">.wi-step-num — Serif-Nummerierung für Value-Props</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Buttons -->
+  <section id="buttons" class="wi-section" style="padding-block: 56px; border-top: 1px solid rgba(31, 41, 55, 0.06);">
+    <div class="wi-container">
+      <p class="sg-label">2 · Buttons</p>
+      <div class="sg-swatches">
+        <a href="#" class="wi-btn wi-btn-primary">Primary <span class="wi-arrow">→</span></a>
+        <a href="#" class="wi-btn wi-btn-ghost">Ghost</a>
+      </div>
+      <div class="sg-swatches sg-bg-dark" style="margin-top: 24px;">
+        <a href="#" class="wi-btn wi-btn-light">Light <span class="wi-arrow">→</span></a>
+        <a href="#" class="wi-btn wi-btn-outline-light">Outline Light</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Pills -->
+  <section id="pills" class="wi-section" style="padding-block: 56px; border-top: 1px solid rgba(31, 41, 55, 0.06);">
+    <div class="wi-container">
+      <p class="sg-label">3 · Pills</p>
+      <div class="sg-swatches">
+        <span class="wi-pill wi-pill-neutral">Neutral</span>
+        <span class="wi-pill wi-pill-warning">Warning</span>
+        <span class="wi-pill wi-pill-info">Info</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Stat-Strip -->
+  <section id="statstrip">
+    <p class="sg-label" style="max-width: 1200px; margin: 56px auto 16px; padding: 0 32px;">4 · Stat-Strip</p>
+    <div class="wi-stat-strip">
+      <div class="wi-stat-strip-inner">
+        <div>
+          <div class="wi-big-num">25<span style="font-size: 0.6em; vertical-align: 0.2em;">+</span></div>
+          <p class="wi-stat-label">Jahre Digitalisierungserfahrung</p>
+        </div>
+        <div>
+          <div class="wi-big-num">8</div>
+          <p class="wi-stat-label">Module waveTest Prüfmethodik</p>
+        </div>
+        <div>
+          <div class="wi-big-num">1</div>
+          <p class="wi-stat-label">DBA Data Science, persönlich</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Value-Props -->
+  <section id="valueprops" class="wi-section" style="padding-block: 80px;">
+    <div class="wi-container">
+      <p class="sg-label">5 · Value-Props (nummerierte Kacheln)</p>
+      <p class="wi-eyebrow">Warum jetzt</p>
+      <div class="wi-valueprops" style="margin-top: 40px;">
+        <div>
+          <div class="wi-step-num">01</div>
+          <h3 class="wi-valueprop-title">Die blinde Stelle</h3>
+          <p class="wi-valueprop-text">KI entscheidet in Recruiting, Service und Risiko — der Nachhaltigkeitsbericht schweigt. CSRD und Stakeholder ändern das gerade.</p>
+        </div>
+        <div>
+          <div class="wi-step-num">02</div>
+          <h3 class="wi-valueprop-title">Werte im Algorithmus</h3>
+          <p class="wi-valueprop-text">Ein auf Ihre Werte abgestimmtes KI-System liefert bessere Ergebnisse. Wir machen diese Abstimmung sichtbar, dokumentierbar und prüfbar.</p>
+        </div>
+        <div>
+          <div class="wi-step-num">03</div>
+          <h3 class="wi-valueprop-title">Governance unter Kontrolle</h3>
+          <p class="wi-valueprop-text">Verantwortungsvolle KI ist kein Hemmschuh — sie ist die Form, in der aus Werten Wettbewerbsvorteil wird.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Pull-Quote -->
+  <section id="pullquote" class="wi-section" style="padding-block: 32px 80px;">
+    <div class="wi-container">
+      <p class="sg-label">6 · Pull-Quote</p>
+      <div class="wi-pullquote">
+        <img class="wi-pullquote-mark" src="waveImpact_logo_mark.svg" alt="">
+        <p class="wi-pullquote-text">Wer KI einsetzt, übersetzt seine Werte in Code — ob bewusst oder nicht. Wir machen die Übersetzung sichtbar.</p>
+        <p class="wi-pullquote-attribution">— Dr. Valentin José Mayr · Gründer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Timeline -->
+  <section id="timeline" class="wi-section" style="padding-block: 80px; border-top: 1px solid rgba(31, 41, 55, 0.06);">
+    <div class="wi-container">
+      <p class="sg-label">7 · Timeline</p>
+      <div class="wi-timeline-header">
+        <div>
+          <p class="wi-eyebrow">EU AI Act</p>
+          <h2 class="wi-h2" style="margin-top: 16px;">Der Zeitplan hat sich verändert.<br>Die Erwartungen nicht.</h2>
+          <p class="wi-timeline-intro">
+            Mit der vorläufigen Trilog-Einigung zum <em>Digital Omnibus on AI</em>
+            vom 7. Mai 2026 verschieben sich zentrale Pflichten für Hochrisiko-KI nach hinten.
+          </p>
+        </div>
+        <span class="wi-timeline-stand">Stand: 7. Mai 2026</span>
+      </div>
+      <ul class="wi-timeline-list">
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-neutral">Feb 2025</span>
+          <p>Verbotene KI-Praktiken nach Art. 5 durchsetzbar.</p>
+        </li>
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-warning">Aug 2026</span>
+          <p>Transparenzpflichten (Art. 50) — <span class="wi-timeline-note">Frist bleibt.</span></p>
+        </li>
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-info">Dez 2027</span>
+          <p>Hochrisiko-Systeme nach Anhang III — <span class="wi-timeline-note">Verschoben aus Aug 2026.</span></p>
+        </li>
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-info">Aug 2028</span>
+          <p>Eingebettete Hochrisiko-KI nach Anhang I — <span class="wi-timeline-note">Verschoben aus Aug 2027.</span></p>
+        </li>
+      </ul>
+      <p class="wi-timeline-summary">
+        <strong>Die zusätzliche Zeit ist keine Entwarnung, sondern eine Vorbereitungsphase.</strong>
+        Die Anforderungen werden nicht weicher.
+      </p>
+    </div>
+  </section>
+
+  <!-- 8. Service-Cards -->
+  <section id="services" class="wi-section" style="padding-block: 80px; border-top: 1px solid rgba(31, 41, 55, 0.06);">
+    <div class="wi-container">
+      <p class="sg-label">8 · Service-Cards</p>
+      <p class="wi-eyebrow">Zusammenarbeit</p>
+      <h2 class="wi-h2" style="margin-bottom: 48px; margin-top: 16px;">Drei Wege, mit uns zu arbeiten</h2>
+      <div class="wi-services">
+        <article class="wi-service-card">
+          <h3 class="wi-service-title">Grundpaket</h3>
+          <p class="wi-service-subtitle">Strategie und Standort. RAI-Strategie, Governance-Grundlagen, EU-AI-Act-Status.</p>
+          <p class="wi-service-price">ab 18.000 €</p>
+          <p class="wi-service-meta">4–6 Wochen</p>
+        </article>
+        <article class="wi-service-card wi-service-card-featured">
+          <span class="wi-service-badge">Häufig gewählt</span>
+          <h3 class="wi-service-title">Implementierung</h3>
+          <p class="wi-service-subtitle">Operationalisierung. Bias-Erkennung, Monitoring, Team-Schulung.</p>
+          <p class="wi-service-price">ab 35.000 €</p>
+          <p class="wi-service-meta">3 Monate</p>
+        </article>
+        <article class="wi-service-card">
+          <h3 class="wi-service-title">Transformation</h3>
+          <p class="wi-service-subtitle">RAI als Differenzierung. Incident Management, Transparenzberichte.</p>
+          <p class="wi-service-price">ab 60.000 €</p>
+          <p class="wi-service-meta">6+ Monate</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Differentiators -->
+  <section id="diff" class="wi-section" style="padding-block: 80px; border-top: 1px solid rgba(31, 41, 55, 0.06);">
+    <div class="wi-container">
+      <p class="sg-label">9 · Differentiators</p>
+      <p class="wi-eyebrow">Was uns unterscheidet</p>
+      <h2 class="wi-h2" style="margin-bottom: 48px; margin-top: 16px;">Mehr als Beratung — Ihr methodischer Partner</h2>
+      <div class="wi-diff">
+        <div>
+          <div class="wi-diff-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 21h14"/><path d="M6 18l1.5-3.9A9 9 0 1 1 14 18"/><circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
+          <h3 class="wi-diff-title">Forschung trifft Praxis</h3>
+          <p class="wi-diff-text">DBA in Data Science, 25+ Jahre Digitalisierung. Forschungsgestützt und am Montagmorgen umsetzbar.</p>
+        </div>
+        <div>
+          <div class="wi-diff-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h4l13-13a1.5 1.5 0 0 0-4-4L3 17z"/><path d="m14.5 5.5 4 4"/>
+            </svg>
+          </div>
+          <h3 class="wi-diff-title">Eigene Prüfmethodik: waveTest</h3>
+          <p class="wi-diff-text">Fairness, Erklärbarkeit, Datenqualität als reproduzierbare Prüfprozeduren — nicht Bauchgefühl in PowerPoint.</p>
+        </div>
+        <div>
+          <div class="wi-diff-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 17 9 19l-3 3-3-3 8.5-8.5"/><path d="m19 11-8-8 3-3 3 3 3 3"/>
+            </svg>
+          </div>
+          <h3 class="wi-diff-title">Purpose vor Auslastung</h3>
+          <p class="wi-diff-text">Wir arbeiten nur mit Unternehmen, bei denen ein echter Unterschied entsteht. Partnerschaft statt Pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Final-CTA -->
+  <section id="cta" class="wi-section" style="padding-block: 32px 80px;">
+    <div class="wi-container">
+      <p class="sg-label">10 · Final-CTA</p>
+      <div class="wi-final-cta">
+        <svg class="wi-final-cta-decor" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round">
+            <path d="M 6 32 C 38 -2, 178 58, 214 36"/>
+            <path d="M 6 68 C 38 32, 178 95, 214 72"/>
+            <path d="M 6 104 C 38 68, 178 132, 214 108"/>
+          </g>
+        </svg>
+        <p class="wi-eyebrow">Ihr nächster Schritt</p>
+        <h2 class="wi-h2">Wissen, wo Sie stehen — nicht als Pitch, sondern als Standortbestimmung.</h2>
+        <div class="wi-final-cta-buttons">
+          <a href="#termin" class="wi-btn wi-btn-light">30-Min.-Erstgespräch <span class="wi-arrow">→</span></a>
+          <a href="#schnellcheck" class="wi-btn wi-btn-outline-light">5-Punkte-Schnell-Check (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER (reusable across all pages)
+       ============================================ -->
+  <footer id="footer" class="wi-footer">
+    <div class="wi-footer-inner">
+      <div class="wi-footer-brand">
+        <a href="/" class="wi-footer-logo-link" aria-label="waveImpact — Startseite">
+          <img src="waveImpact_logo_horizontal.svg" alt="waveImpact"
+               width="197" height="32" class="wi-footer-logo">
+        </a>
+        <p class="wi-footer-tagline">
+          Responsible AI Consultancy für werteorientierte Unternehmen.
+          Sitz Bremen, europaweit tätig.
+        </p>
+      </div>
+    </div>
+    <div class="wi-footer-bottom">
+      <span>© 2026 waveImpact GmbH · AG Bremen HRB 42134 HB</span>
+      <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

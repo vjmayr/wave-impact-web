@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>waveImpact — EU AI Act Timeline</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       Timeline — waveImpact
+       Vier Zeilen mit horizontalen Trennlinien,
+       Datums-Pillen links, Beschreibung rechts.
+       ============================================ */
+
+    .wi-timeline-section {
+      padding: 96px 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.10);
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1F2937;
+      background: #FFFFFF;
+    }
+
+    .wi-timeline-container {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 32px;
+    }
+
+    .wi-timeline-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .wi-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: #0D9488;
+      margin: 0 0 12px;
+    }
+
+    .wi-timeline-title {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      margin: 0;
+      color: #1F2937;
+    }
+
+    .wi-timeline-intro {
+      max-width: 60ch;
+      margin: 16px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4B5563;
+    }
+
+    .wi-timeline-stand {
+      font-size: 13px;
+      color: #9CA3AF;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    /* The list itself ---------------------------------- */
+    .wi-timeline-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wi-timeline-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 22px 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.08);
+    }
+
+    .wi-timeline-row:last-child {
+      border-bottom: 1px solid rgba(31, 41, 55, 0.08);
+    }
+
+    .wi-timeline-row p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.5;
+      color: #1F2937;
+    }
+
+    .wi-timeline-note {
+      color: #9CA3AF;
+    }
+
+    /* Pills -------------------------------------------- */
+    .wi-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-align: center;
+      min-width: 110px;
+      white-space: nowrap;
+    }
+    .wi-pill-neutral { background: #F3F4F6; color: #6B7280; }
+    .wi-pill-warning { background: #FEF3C7; color: #92400E; }
+    .wi-pill-info    { background: #DBEAFE; color: #1E40AF; }
+
+    /* Summary block under the list --------------------- */
+    .wi-timeline-summary {
+      max-width: 60ch;
+      margin: 40px 0 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #4B5563;
+    }
+    .wi-timeline-summary strong {
+      color: #1F2937;
+      font-weight: 700;
+    }
+
+    /* Mobile ------------------------------------------- */
+    @media (max-width: 768px) {
+      .wi-timeline-section { padding: 64px 0; }
+      .wi-timeline-header {
+        grid-template-columns: 1fr;
+      }
+      .wi-timeline-stand {
+        order: -1;
+      }
+      .wi-timeline-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 18px 0;
+      }
+      .wi-timeline-row p { font-size: 15px; }
+    }
+
+    body { margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       TIMELINE — copy this block into your page
+       ============================================ -->
+  <section class="wi-timeline-section">
+    <div class="wi-timeline-container">
+
+      <div class="wi-timeline-header">
+        <div>
+          <p class="wi-eyebrow">EU AI Act</p>
+          <h2 class="wi-timeline-title">Der Zeitplan hat sich verändert.<br>Die Erwartungen nicht.</h2>
+          <p class="wi-timeline-intro">
+            Mit der vorläufigen Trilog-Einigung zum <em>Digital Omnibus on AI</em>
+            vom 7. Mai 2026 verschieben sich zentrale Pflichten für Hochrisiko-KI
+            nach hinten. Die formale Annahme durch Parlament und Rat steht noch aus.
+          </p>
+        </div>
+        <span class="wi-timeline-stand">Stand: 7. Mai 2026</span>
+      </div>
+
+      <ul class="wi-timeline-list">
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-neutral">Feb 2025</span>
+          <p>Verbotene KI-Praktiken nach Art. 5 durchsetzbar — soziales Scoring, manipulative Systeme, bestimmte biometrische Anwendungen.</p>
+        </li>
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-warning">Aug 2026</span>
+          <p>Transparenzpflichten (Art. 50) — Kennzeichnung von Chatbots, KI-generierten Texten, Bildern, Audio und Video. <span class="wi-timeline-note">Frist bleibt.</span></p>
+        </li>
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-info">Dez 2027</span>
+          <p>Hochrisiko-Systeme nach Anhang III — Personalauswahl, Bonitätsprüfung, Bildung, kritische Infrastruktur. <span class="wi-timeline-note">Verschoben aus Aug 2026.</span></p>
+        </li>
+        <li class="wi-timeline-row">
+          <span class="wi-pill wi-pill-info">Aug 2028</span>
+          <p>Eingebettete Hochrisiko-KI nach Anhang I — Medizinprodukte, Maschinen, regulierte Produkte. <span class="wi-timeline-note">Verschoben aus Aug 2027.</span></p>
+        </li>
+      </ul>
+
+      <p class="wi-timeline-summary">
+        <strong>Die zusätzliche Zeit ist keine Entwarnung, sondern eine Vorbereitungsphase.</strong>
+        Die Anforderungen werden nicht weicher — und Investoren, Rating-Agenturen und Aufsichtsräte fragen heute schon.
+      </p>
+
+    </div>
+  </section>
+
+</body>
+</html>
