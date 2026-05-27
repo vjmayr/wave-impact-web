@@ -81,7 +81,7 @@ oder `.wi-valueprops`) — außerhalb des Refactor-Scopes:
 - `waveImpact_leistungen_workshops.html:324`
 - `waveImpact_ueber.html:102`
 
-## Verifikation
+## Verifikation (Phase 1)
 
 ```bash
 # Erwartet: nur Unmatched (9) + Rule-2-Skips (8) als Treffer
@@ -91,4 +91,92 @@ $ grep -nE 'style="[^"]*grid-template-columns' *.html | wc -l
 # Erwartet: 22 neue Utility-Klassen verteilt auf 9 Files
 $ grep -cE 'class="[^"]*wi-(grid-[234]|split-2-1|split-1-2|split-content-aside|split-content-sidebar|list-icon)' *.html
 … (Summen: expertise=5, kontakt=6, audit=1, monitoring=2, readiness=1, workshops=2, news=3, ueber=1, styleguide=1)
+```
+
+---
+
+# C.2 Extension (CSS v3.1)
+
+**Run:** 2026-05-27 · Auslöser: § 28 ergänzt um `.wi-grid-5`,
+`.wi-card-icon-meta` und erweitert `.wi-split-content-aside` auf 1.4fr 1fr.
+
+## Summary
+
+- **Elements refactored (Extension):** 8
+- **Verbleibend unverändert:** 1 (bewusst belassen)
+- **Combined total (Initial + Extension):** 30 Refactorings über 9 Files
+
+## Refactorings
+
+| # | File | Line | grid-template-columns | inline gap | → class | gap action | weitere Änderungen |
+|---|------|------|-----------------------|-----------|---------|-----------|---------------------|
+| 1 | waveImpact_expertise.html | 235 | `repeat(5, 1fr)` | `16px` | `.wi-grid-5` | REMOVE (=16) | — |
+| 2 | waveImpact_expertise.html | 395 | `64px 1fr auto` | `24px` | `.wi-card-icon-meta` | KEEP (24≠20) | `align-items: center` entfernt (= default) |
+| 3 | waveImpact_expertise.html | 403 | `64px 1fr auto` | `24px` | `.wi-card-icon-meta` | KEEP (24≠20) | `align-items: center` entfernt |
+| 4 | waveImpact_expertise.html | 411 | `64px 1fr auto` | `24px` | `.wi-card-icon-meta` | KEEP (24≠20) | `align-items: center` entfernt |
+| 5 | waveImpact_expertise.html | 419 | `64px 1fr auto` | `24px` | `.wi-card-icon-meta` | KEEP (24≠20) | `align-items: center` entfernt |
+| 6 | waveImpact_expertise.html | 427 | `64px 1fr auto` | `24px` | `.wi-card-icon-meta` | KEEP (24≠20) | `align-items: center` entfernt |
+| 7 | waveImpact_news.html | 74 | `1.4fr 1fr` | `56px` | `.wi-split-content-aside` | REMOVE (=56) | — |
+| 8 | waveImpact_ueber.html | 166 | `1.4fr 1fr` | `64px` | `.wi-split-content-aside` | KEEP (64≠56) | — |
+
+**Note zu #1:** Der ursprüngliche Auftrag erwartete inline `gap: 24px`; tatsächlich war
+es `gap: 16px`. Nach Rückfrage bestätigt: Class-Default `.wi-grid-5` = 16px → gap
+entfernt (match).
+
+**Note zu #2–#6:** Alle fünf Case-Cards in `expertise.html` haben identische
+inline-Definitionen → in einem `replace_all`-Edit migriert.
+
+## Class-Defaults (CSS v3.1, neu/erweitert)
+
+| Klasse | gap | align-items | columns |
+|--------|-----|-------------|---------|
+| `.wi-grid-5` | `16px` | — | `repeat(5, 1fr)` |
+| `.wi-card-icon-meta` | `20px` | `center` | `64px 1fr auto` |
+| `.wi-split-content-aside` (erweitert) | `56px` | — | jetzt auch `1.4fr 1fr` |
+
+## Bewusst unverändert (1)
+
+| File | Line | grid-template-columns | Begründung |
+|------|------|-----------------------|-----------|
+| waveImpact_ueber.html | 351 | `auto 1fr auto` | Einmaliges Pattern (Avatar + Lead + CTA), keine Reuse-Fälle. Inline-Style bleibt; § 24.2 Attribute-Selektoren übernehmen Mobile-Fallback. |
+
+**Bestätigung:** Genau ein Element bleibt mit inline `display: grid` —
+`waveImpact_ueber.html:351`. Verifiziert via `grep`.
+
+## Combined Totals (Initial + Extension)
+
+| File | Refactorings | Klassen |
+|------|--------------|---------|
+| waveImpact_expertise.html | 11 | `.wi-grid-4` (1), `.wi-grid-2` (2), `.wi-grid-3` (1), `.wi-split-content-sidebar` (1), `.wi-grid-5` (1), `.wi-card-icon-meta` (5) |
+| waveImpact_kontakt.html | 6 | `.wi-grid-3` (1), `.wi-split-content-aside` (1), `.wi-list-icon` (3), `.wi-grid-2` (1) |
+| waveImpact_news.html | 4 | `.wi-grid-3` (2), `.wi-grid-2` (1), `.wi-split-content-aside` (1) |
+| waveImpact_ueber.html | 2 | `.wi-grid-2` (1), `.wi-split-content-aside` (1) |
+| waveImpact_leistungen_audit.html | 1 | `.wi-grid-2` (1) |
+| waveImpact_leistungen_monitoring.html | 2 | `.wi-grid-2` (2) |
+| waveImpact_leistungen_readiness.html | 1 | `.wi-grid-2` (1) |
+| waveImpact_leistungen_workshops.html | 2 | `.wi-grid-2` (1), `.wi-grid-3` (1) |
+| waveImpact_styleguide.html | 1 | `.wi-grid-2` (1) |
+| **Summe** | **30** | — |
+
+| Klasse | Combined Count |
+|--------|----------------|
+| `.wi-grid-2` | 11 |
+| `.wi-grid-3` | 5 |
+| `.wi-grid-4` | 1 |
+| `.wi-grid-5` | 1 |
+| `.wi-card-icon-meta` | 5 |
+| `.wi-split-content-aside` | 3 |
+| `.wi-split-content-sidebar` | 1 |
+| `.wi-list-icon` | 3 |
+
+## Verifikation (Extension)
+
+```bash
+# Erwartet: genau 1 Treffer (ueber.html:351, bewusst belassen)
+$ grep -nE 'style="[^"]*display: grid[^"]*grid-template-columns' *.html
+waveImpact_ueber.html:351:      <div style="display: grid; grid-template-columns: auto 1fr auto; …">
+
+# Erwartet: 8 Rule-2-Skips bleiben (display:grid via Klasse, nicht inline)
+$ grep -nE 'style="[^"]*grid-template-columns' *.html | wc -l
+9   # = 1 belassen + 8 Rule-2-Skips
 ```
