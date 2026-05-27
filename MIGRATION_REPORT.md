@@ -180,3 +180,56 @@ waveImpact_ueber.html:351:      <div style="display: grid; grid-template-columns
 $ grep -nE 'style="[^"]*grid-template-columns' *.html | wc -l
 9   # = 1 belassen + 8 Rule-2-Skips
 ```
+
+---
+
+# C.2 Extension 2 (CSS v3.2)
+
+**Run:** 2026-05-27 · Auslöser: Default-Gap von `.wi-card-icon-meta`
+korrigiert von 20px → 24px (matcht reale Verwendungen). Damit werden die
+in Extension 1 als Override beibehaltenen `gap: 24px` auf den fünf
+Case-Cards redundant.
+
+## Refactorings
+
+| # | File | Line | Element | Action |
+|---|------|------|---------|--------|
+| 1 | waveImpact_expertise.html | 395 | `<article class="wi-card-icon-meta">` Case-Card | `gap: 24px;` entfernt (= neuer Default) |
+| 2 | waveImpact_expertise.html | 403 | s.o. | `gap: 24px;` entfernt |
+| 3 | waveImpact_expertise.html | 411 | s.o. | `gap: 24px;` entfernt |
+| 4 | waveImpact_expertise.html | 419 | s.o. | `gap: 24px;` entfernt |
+| 5 | waveImpact_expertise.html | 427 | s.o. | `gap: 24px;` entfernt |
+
+Alle fünf Elemente sind identisch → in einem `replace_all`-Edit migriert.
+Andere inline-Properties (`padding`, `background`, `border`, `border-radius`)
+unverändert.
+
+## Class-Defaults (CSS v3.2, geändert)
+
+| Klasse | Default v3.1 | Default v3.2 | Grund |
+|--------|--------------|--------------|-------|
+| `.wi-card-icon-meta` gap | `20px` | `24px` | Matcht reale Verwendungen (5/5 Cases hatten Override 24px) |
+
+## Verifikation (Extension 2)
+
+```bash
+# Case-Card-Zeilen — erwartet: kein gap inline mehr
+$ grep -nE 'wi-card-icon-meta' waveImpact_expertise.html
+395:        <article class="wi-card-icon-meta" style="padding: 24px 32px; background: #fff; border: …">
+403:        <article class="wi-card-icon-meta" style="padding: 24px 32px; …">
+411:        <article class="wi-card-icon-meta" style="padding: 24px 32px; …">
+419:        <article class="wi-card-icon-meta" style="padding: 24px 32px; …">
+427:        <article class="wi-card-icon-meta" style="padding: 24px 32px; …">
+
+# Verbleibende gap: 24px im File — erwartet: 2 (beide NICHT Case-Card,
+# beide bewusst als Override auf wi-grid-4 / wi-grid-2 belassen)
+$ grep -nE 'gap: 24px' waveImpact_expertise.html
+114:      <div class="wi-grid-4" style="gap: 24px; margin-top: 56px;">
+318:      <div class="wi-grid-2" style="gap: 24px; margin-top: 56px;">
+```
+
+## Update Combined Totals
+
+Refactoring-Counts unverändert (30) — diese Extension entfernt nur redundante
+gap-Overrides, fügt keine neuen Klassenanwendungen hinzu. **gap-entfernt-Bilanz**
+wächst von 12 → 17 Stellen.
