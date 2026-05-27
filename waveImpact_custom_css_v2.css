@@ -1,0 +1,1874 @@
+/* ============================================================
+   waveImpact — Custom CSS (konsolidiert)
+   Version 2.4 — Mai 2026
+
+   Single source of truth fuer Customize -> Additional CSS.
+   Konsolidiert aus: waveImpact_global v1.0, Spacing Corrections
+   v1.2, Query Loop Bridge v1.0, Workstream-B-Mobile-Fixes.
+
+   Changelog:
+   v2.4: § 24.8 ergaenzt — Inline-Padding-Reduktion und H2/H3-
+         Mobile-Cap (Newsletter-Section mit padding 56px 64px
+         und inline-clamp-Headline).
+   v2.3: § 24.7 ergaenzt — Tabellen Mobile-Scroll via :has()
+         auf Parent-Container (war B.10 aus dem Workstream-
+         Dokument, fehlte in v2.0–v2.2).
+   v2.2: § 24.2 ergaenzt um 1.1fr/1.2fr/1.3fr-Decimal-Patterns
+         (Kontaktseite Steps+SSA-Split verwendet 1.2fr 1fr).
+   v2.1: § 24.2 erweitert um asymmetrische Zwei-Spalten-Inline-
+         Patterns (1fr Npx, Mfr 1fr) fuer Content+Sidebar-
+         Layouts.
+
+   Struktur:
+     §  1  Brand-Tokens
+     §  2  Typografie-Bausteine
+     §  3  Layout-Primitive (Container, Section)
+     §  4  Buttons
+     §  5  Pills
+     §  6  Header
+     §  7  Hero
+     §  8  Stat-Strip
+     §  9  Value-Props
+     § 10  Pull-Quote
+     § 11  Timeline
+     § 12  Service-Cards
+     § 13  Differentiators
+     § 14  Final-CTA
+     § 15  Footer
+     § 16  Progression-Flow
+     § 17  Service-Detail-Card
+     § 18  Vergleichs-Matrix
+     § 19  FAQ
+     § 20  Meta-Strip
+     § 21  Phase-Liste
+     § 22  WP Query Loop Bridge
+     § 23  Responsive — Tablet (max-width: 960px)
+     § 24  Responsive — Mobile (max-width: 767px)
+     § 25  Responsive — Small Mobile (max-width: 640px)
+     § 26  Page-Specific Overrides (News, page-id-334)
+     § 27  Diagnose-Hinweise
+
+   WP-Customizer-Hinweis: das Zeichen für „kleiner als" darf
+   in dieser CSS-Datei nicht verwendet werden (auch nicht in
+   Kommentaren), sonst lehnt der WP-Sanitizer mit „Markup is
+   not allowed in CSS" ab. Wir schreiben durchgehend „bis Npx".
+
+   !important-Disziplin: gezielt eingesetzt, wo Kadence-Theme-
+   Defaults oder Inline-Styles aus Custom-HTML-Blocks sonst
+   überschreiben würden — nicht prophylaktisch.
+   ============================================================ */
+
+
+/* ============================================================
+   § 1  Brand-Tokens
+   ============================================================ */
+:root {
+  /* Brand colours */
+  --wi-green:        #059669;
+  --wi-green-dark:   #047857;
+  --wi-teal:         #0D9488;
+  --wi-teal-light:   #2DD4BF;
+
+  /* Text scale */
+  --wi-text:         #1F2937;
+  --wi-text-soft:    #4B5563;
+  --wi-text-muted:   #6B7280;
+  --wi-text-faint:   #9CA3AF;
+
+  /* Surfaces */
+  --wi-surface:        #FFFFFF;
+  --wi-surface-soft:   #F9FAFB;
+  --wi-surface-muted:  #F3F4F6;
+
+  /* Borders */
+  --wi-border:       rgba(31, 41, 55, 0.10);
+  --wi-border-soft:  rgba(31, 41, 55, 0.06);
+
+  /* Semantic pill tones */
+  --wi-pill-warn-bg: #FEF3C7;
+  --wi-pill-warn-fg: #92400E;
+  --wi-pill-info-bg: #DBEAFE;
+  --wi-pill-info-fg: #1E40AF;
+
+  /* Layout */
+  --wi-container: 1200px;
+  --wi-gutter:    32px;
+
+  /* Type stacks */
+  --wi-font-body:  'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --wi-font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+
+/* ============================================================
+   § 2  Typografie-Bausteine
+   ============================================================ */
+.wi-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0 0 12px;
+  text-transform: none;
+}
+
+.wi-display {
+  font-size: clamp(38px, 5.2vw, 64px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--wi-text);
+  margin: 0;
+}
+
+.wi-h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--wi-text);
+  margin: 0;
+}
+
+.wi-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+  margin: 0;
+}
+
+.wi-lead {
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+  margin: 0;
+}
+
+.wi-accent { color: var(--wi-green); }
+.wi-serif  { font-family: var(--wi-font-serif); }
+
+.wi-big-num {
+  font-family: var(--wi-font-serif);
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--wi-green);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.wi-step-num {
+  font-family: var(--wi-font-serif);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+
+/* ============================================================
+   § 3  Layout-Primitive
+   Container + Section, inkl. Padding-Logik via :has()
+   (ehemals „Spacing Corrections v1.2", jetzt integriert)
+   ============================================================ */
+.wi-container {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+}
+
+/* Basis-Sektion: 56px Padding (v1.2 hatte 56px statt der
+   ursprünglichen 112px — diese Tuning-Entscheidung wird hier
+   übernommen). !important schützt gegen Kadence-Row-Padding. */
+.wi-section {
+  padding-top:    56px !important;
+  padding-bottom: 56px !important;
+}
+
+.wi-section-tight    { padding-block: 64px; }
+.wi-section-bordered { border-top: 1px solid var(--wi-border); }
+
+/* Visual rhythm: aufeinanderfolgende Sektionen bekommen eine
+   Haarlinie. Hero (.wi-display) und manuelle .wi-section-flush
+   bleiben ohne. */
+.wi-section + .wi-section {
+  border-top: 1px solid var(--wi-border);
+}
+.wi-section-flush + .wi-section,
+.wi-section + .wi-section-flush {
+  border-top: none;
+}
+
+/* Hero-Sektion-Variante: erkannt anhand .wi-display */
+.wi-section:has(.wi-display) {
+  padding-top:    48px !important;
+  padding-bottom: 16px !important;
+}
+
+/* Pull-Quote-Sektion: oben flush, unten Standard */
+.wi-section:has(.wi-pullquote) {
+  padding-top:     0   !important;
+  padding-bottom: 56px !important;
+}
+
+/* Final-CTA-Sektion: oben flush, unten 72px */
+.wi-section:has(.wi-final-cta) {
+  padding-top:     0   !important;
+  padding-bottom: 72px !important;
+}
+
+
+/* ============================================================
+   § 4  Buttons
+   !important hier bewusst: Themes überschreiben sonst Padding,
+   Border-Color und Hover-Transitions.
+   ============================================================ */
+.wi-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 14px 24px !important;
+  border-radius: 10px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.005em !important;
+  border: 1px solid transparent !important;
+  text-decoration: none !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  transition: all 180ms cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.wi-btn-primary {
+  background: var(--wi-green) !important;
+  color: #FFFFFF !important;
+}
+.wi-btn-primary:hover {
+  background: var(--wi-green-dark) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 20px -8px rgba(5, 150, 105, 0.5) !important;
+  color: #FFFFFF !important;
+}
+
+.wi-btn-ghost {
+  background: transparent !important;
+  color: var(--wi-text) !important;
+  border-color: var(--wi-border) !important;
+}
+.wi-btn-ghost:hover {
+  border-color: var(--wi-text) !important;
+  transform: translateY(-1px) !important;
+  color: var(--wi-text) !important;
+}
+
+.wi-btn-light {
+  background: #FFFFFF !important;
+  color: var(--wi-green) !important;
+}
+.wi-btn-light:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.25) !important;
+  color: var(--wi-green) !important;
+}
+
+.wi-btn-outline-light {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+.wi-btn-outline-light:hover {
+  border-color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+}
+
+.wi-arrow              { transition: transform 180ms ease; }
+.wi-btn:hover .wi-arrow { transform: translateX(2px); }
+
+
+/* ============================================================
+   § 5  Pills
+   ============================================================ */
+.wi-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-align: center;
+  min-width: 110px;
+  white-space: nowrap;
+}
+.wi-pill-neutral { background: var(--wi-surface-muted); color: var(--wi-text-muted); }
+.wi-pill-warning { background: var(--wi-pill-warn-bg);  color: var(--wi-pill-warn-fg); }
+.wi-pill-info    { background: var(--wi-pill-info-bg);  color: var(--wi-pill-info-fg); }
+
+
+/* ============================================================
+   § 6  Header
+   Sticky + Blur-Backdrop. Padding gegenüber v1.0 etwas
+   reduziert (14px statt 16px) — Übernahme aus v1.2.
+   ============================================================ */
+.wi-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--wi-border-soft);
+}
+.wi-header-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding: 16px var(--wi-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wi-header-logo {
+  display: inline-block;
+  line-height: 0;
+}
+.wi-header-logo img {
+  display: block;
+  width: 246px;     /* 40 px Hoehe x 6,159 Seitenverhaeltnis */
+  height: 40px;
+  max-width: 100%;
+}
+.wi-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.wi-nav a {
+  font-size: 14px;
+  color: var(--wi-text-soft);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.wi-nav a:hover { color: var(--wi-text); }
+.wi-nav-lang {
+  color: var(--wi-text-faint);
+  font-size: 13px;
+  padding-left: 24px;
+  border-left: 1px solid var(--wi-border);
+}
+
+
+/* ============================================================
+   § 7  Hero (Split-Layout mit Visual)
+   ============================================================ */
+.wi-hero {
+  padding-block: 96px 80px;
+}
+.wi-hero-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 80px;
+  align-items: center;
+}
+.wi-hero-eyebrow { margin-bottom: 28px; }
+.wi-hero h1      { margin: 0 0 28px; max-width: 18ch; }
+.wi-hero-lead    { margin: 0 0 40px; max-width: 50ch; }
+.wi-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.wi-hero-visual {
+  position: relative;
+  width: 100%;
+}
+.wi-hero-visual img,
+.wi-hero-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ============================================================
+   § 8  Stat-Strip
+   ============================================================ */
+.wi-stat-strip {
+  border-block: 1px solid var(--wi-border);
+  padding-block: 56px;
+}
+.wi-stat-strip-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+.wi-stat-label {
+  font-size: 14px;
+  color: var(--wi-text-soft);
+  margin: 14px 0 0;
+  max-width: 24ch;
+  line-height: 1.45;
+}
+
+
+/* ============================================================
+   § 9  Value-Props (nummerierte Kacheln)
+   ============================================================ */
+.wi-valueprops {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+}
+.wi-valueprop-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+}
+.wi-valueprop-text {
+  color: var(--wi-text-soft);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ============================================================
+   § 10  Pull-Quote
+   ============================================================ */
+.wi-pullquote {
+  background: var(--wi-surface-soft);
+  border-radius: 20px;
+  padding: 80px 88px 80px 200px;
+  position: relative;
+  overflow: hidden;
+}
+.wi-pullquote-mark {
+  position: absolute;
+  top: 64px;
+  left: 80px;
+  width: 80px;
+  height: auto;
+  opacity: 0.4;
+}
+.wi-pullquote-text {
+  font-family: var(--wi-font-serif);
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+  max-width: 30ch;
+  margin: 0;
+}
+.wi-pullquote-attribution {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  margin: 32px 0 0;
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   § 11  Timeline
+   ============================================================ */
+.wi-timeline-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.wi-timeline-stand {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.wi-timeline-intro {
+  max-width: 60ch;
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+}
+.wi-timeline-list {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+.wi-timeline-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid var(--wi-border);
+}
+.wi-timeline-row:last-child {
+  border-bottom: 1px solid var(--wi-border);
+}
+.wi-timeline-row p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--wi-text);
+}
+.wi-timeline-note { color: var(--wi-text-faint); }
+.wi-timeline-summary {
+  max-width: 60ch;
+  margin: 40px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+}
+.wi-timeline-summary strong {
+  color: var(--wi-text);
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   § 12  Service-Cards
+   ============================================================ */
+.wi-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.wi-service-card {
+  background: #FFFFFF;
+  border: 1px solid var(--wi-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+  transition: all 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.wi-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(31, 41, 55, 0.15);
+  border-color: var(--wi-text-muted);
+}
+.wi-service-card-featured {
+  border: 2px solid var(--wi-green);
+  box-shadow: 0 8px 30px -12px rgba(5, 150, 105, 0.25);
+}
+.wi-service-card-featured:hover {
+  box-shadow: 0 24px 48px -16px rgba(5, 150, 105, 0.35);
+}
+.wi-service-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--wi-green);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+.wi-service-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+}
+.wi-service-subtitle {
+  font-size: 14px;
+  color: var(--wi-text-soft);
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+.wi-service-price {
+  font-family: var(--wi-font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.wi-service-meta {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  margin: 8px 0 0;
+  letter-spacing: 0.02em;
+}
+
+
+/* ============================================================
+   § 13  Differentiators
+   ============================================================ */
+.wi-diff {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+.wi-diff-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wi-green);
+  margin-bottom: 24px;
+}
+.wi-diff-icon svg { width: 100%; height: 100%; }
+.wi-diff-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+  color: var(--wi-text);
+}
+.wi-diff-text {
+  color: var(--wi-text-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ============================================================
+   § 14  Final-CTA
+   ============================================================ */
+.wi-final-cta {
+  background: var(--wi-green);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 88px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.wi-final-cta-decor {
+  position: absolute;
+  right: -80px;
+  top: -40px;
+  width: 480px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.wi-final-cta .wi-eyebrow { color: rgba(255, 255, 255, 0.75); margin-bottom: 24px; }
+.wi-final-cta h2,
+.wi-final-cta .wi-h2 {
+  color: #FFFFFF !important;
+  max-width: 22ch;
+  margin: 0 0 40px;
+}
+.wi-final-cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   § 15  Footer
+   ============================================================ */
+.wi-footer {
+  padding: 64px 0 40px;
+  border-top: 1px solid var(--wi-border);
+  background: #FFFFFF;
+  font-family: var(--wi-font-body);
+}
+.wi-footer-inner {
+  max-width: var(--wi-container);
+  margin-inline: auto;
+  padding-inline: var(--wi-gutter);
+}
+.wi-footer-brand {
+  max-width: 460px;
+}
+.wi-footer-logo-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  line-height: 0;
+}
+.wi-footer-logo {
+  display: block;
+  width: 197px;     /* 32 px Hoehe x 6,159 Seitenverhaeltnis */
+  height: 32px;
+  max-width: 100%;
+}
+.wi-footer-tagline {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--wi-text-muted);
+}
+.wi-footer-bottom {
+  max-width: var(--wi-container);
+  margin: 40px auto 0;
+  padding: 24px var(--wi-gutter) 0;
+  border-top: 1px solid var(--wi-border-soft);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--wi-text-faint);
+}
+.wi-footer-bottom a {
+  color: inherit;
+  text-decoration: none;
+}
+.wi-footer-bottom a:hover { color: var(--wi-text-soft); }
+
+
+/* ============================================================
+   § 16  Progression-Flow
+   ============================================================ */
+.wi-progression {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 48px;
+}
+.wi-progression-step {
+  padding: 0 24px;
+  position: relative;
+}
+.wi-progression-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: -12px;
+  width: 24px;
+  height: 1px;
+  background: var(--wi-border);
+}
+.wi-progression-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--wi-surface-muted);
+  color: var(--wi-text-muted);
+  font-family: var(--wi-font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.wi-progression-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0 0 4px;
+}
+.wi-progression-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--wi-text);
+  margin: 0 0 8px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.wi-progression-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--wi-text-soft);
+  margin: 0;
+}
+
+
+/* ============================================================
+   § 17  Service-Detail-Card
+   ============================================================ */
+.wi-service-detail {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  padding: 72px 0;
+  border-top: 1px solid var(--wi-border);
+}
+.wi-service-detail-meta {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+.wi-service-detail-code {
+  font-family: var(--wi-font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--wi-teal);
+  letter-spacing: 0.04em;
+  margin: 0 0 16px;
+}
+.wi-service-detail-price {
+  font-family: var(--wi-font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.wi-service-detail-duration {
+  font-size: 13px;
+  color: var(--wi-text-faint);
+  letter-spacing: 0.02em;
+  margin: 0 0 24px;
+}
+.wi-service-detail-body h3 {
+  font-size: clamp(24px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--wi-text);
+  margin: 0 0 16px;
+}
+.wi-service-detail-lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+  margin: 0 0 32px;
+  max-width: 56ch;
+}
+.wi-service-includes {
+  list-style: none !important;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 32px;
+}
+.wi-service-includes li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--wi-text);
+}
+.wi-service-includes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 2px;
+  background: var(--wi-teal);
+  border-radius: 999px;
+}
+.wi-service-when {
+  font-size: 13px;
+  color: var(--wi-text-muted);
+  margin: 0 0 24px;
+  font-style: italic;
+}
+.wi-service-when strong { font-style: normal; color: var(--wi-text-soft); }
+
+
+/* ============================================================
+   § 18  Vergleichs-Matrix
+   ============================================================ */
+.wi-matrix {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+  margin-top: 40px;
+}
+.wi-matrix thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wi-text-muted);
+  border-bottom: 2px solid var(--wi-border);
+  vertical-align: bottom;
+}
+.wi-matrix thead th:not(:first-child) {
+  text-align: center;
+  width: 22%;
+}
+.wi-matrix thead th.wi-matrix-featured {
+  color: var(--wi-green);
+  background: rgba(5, 150, 105, 0.04);
+}
+.wi-matrix tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--wi-border-soft);
+  vertical-align: middle;
+}
+.wi-matrix tbody td:first-child {
+  color: var(--wi-text);
+  font-weight: 400;
+}
+.wi-matrix tbody td:not(:first-child) {
+  text-align: center;
+  color: var(--wi-text-faint);
+  font-size: 18px;
+}
+.wi-matrix tbody td.wi-matrix-yes { color: var(--wi-green); font-weight: 700; }
+.wi-matrix tbody td.wi-matrix-featured { background: rgba(5, 150, 105, 0.04); }
+.wi-matrix tfoot td {
+  padding: 20px;
+  border-top: 2px solid var(--wi-border);
+  font-family: var(--wi-font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--wi-green);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+.wi-matrix tfoot td:first-child {
+  font-family: var(--wi-font-body);
+  font-size: 13px;
+  color: var(--wi-text-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+.wi-matrix tfoot td.wi-matrix-featured { background: rgba(5, 150, 105, 0.04); }
+
+
+/* ============================================================
+   § 19  FAQ
+   ============================================================ */
+.wi-faq {
+  max-width: 880px;
+}
+.wi-faq-item {
+  border-top: 1px solid var(--wi-border);
+}
+.wi-faq-item:last-child {
+  border-bottom: 1px solid var(--wi-border);
+}
+.wi-faq-item summary {
+  padding: 24px 48px 24px 0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--wi-text);
+  letter-spacing: -0.01em;
+  position: relative;
+  list-style: none;
+  transition: color 150ms ease;
+}
+.wi-faq-item summary::-webkit-details-marker { display: none; }
+.wi-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--wi-font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--wi-teal);
+  transition: transform 200ms ease;
+  line-height: 1;
+}
+.wi-faq-item[open] summary { color: var(--wi-green); }
+.wi-faq-item[open] summary::after {
+  content: "-";
+  transform: translateY(-50%) rotate(0deg);
+}
+.wi-faq-item summary:hover { color: var(--wi-green); }
+.wi-faq-answer {
+  padding: 0 48px 28px 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--wi-text-soft);
+  max-width: 70ch;
+}
+.wi-faq-answer p { margin: 0 0 12px; }
+.wi-faq-answer p:last-child { margin-bottom: 0; }
+
+
+/* ============================================================
+   § 20  Meta-Strip
+   ============================================================ */
+.wi-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 48px;
+  padding: 28px 0;
+  border-top: 1px solid var(--wi-border);
+  border-bottom: 1px solid var(--wi-border);
+}
+.wi-meta-strip-item {
+  padding: 0 56px 0 0;
+  margin-right: 56px;
+  border-right: 1px solid var(--wi-border-soft);
+}
+.wi-meta-strip-item:last-child {
+  padding-right: 0;
+  margin-right: 0;
+  border-right: none;
+}
+.wi-meta-strip-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-text-muted);
+  margin: 0 0 8px;
+  text-transform: none;
+}
+.wi-meta-strip-value {
+  font-family: var(--wi-font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--wi-text);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin: 0;
+}
+
+
+/* ============================================================
+   § 21  Phase-Liste
+   ============================================================ */
+.wi-phase-list {
+  margin: 48px 0 0;
+}
+.wi-phase {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  padding: 60px 0;
+  border-top: 1px solid var(--wi-border);
+}
+.wi-phase-meta {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+.wi-phase-num {
+  font-family: var(--wi-font-serif);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--wi-green);
+  line-height: 1;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+.wi-phase-duration {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0;
+}
+.wi-phase-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--wi-text);
+}
+.wi-phase-body p {
+  margin: 0 0 16px;
+  line-height: 1.65;
+  color: var(--wi-text-soft);
+  font-size: 16px;
+}
+.wi-phase-body p:last-child { margin-bottom: 0; }
+.wi-phase-deliverables {
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: var(--wi-surface-soft);
+  border-radius: 12px;
+}
+.wi-phase-deliverables-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--wi-teal);
+  margin: 0 0 12px;
+}
+.wi-phase-deliverables ul {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+.wi-phase-deliverables li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--wi-text);
+}
+.wi-phase-deliverables li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 10px;
+  height: 2px;
+  background: var(--wi-teal);
+  border-radius: 999px;
+}
+
+
+/* ============================================================
+   § 22  WordPress Query Loop Bridge
+   Bringt Gutenberg-Block-Output (Post-Title, Post-Date,
+   Post-Excerpt, Read-More, Pagination) auf das visuelle
+   Pattern der waveImpact-Karten.
+   Voraussetzung: Group-Container im Query-Loop traegt
+   .wi-article-card bzw. .wi-featured-article.
+   ============================================================ */
+
+/* 22.1 Standard-Karten */
+.wi-article-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px 28px;
+  background: #fff;
+  border: 1px solid var(--wi-border);
+  border-radius: 16px;
+  transition: border-color 0.2s ease;
+}
+.wi-article-card:hover {
+  border-color: var(--wi-teal);
+}
+.wi-article-card .wp-block-post-terms {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--wi-teal);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+.wi-article-card .wp-block-post-terms a {
+  color: inherit;
+  text-decoration: none;
+}
+.wi-article-card .wp-block-post-terms a:hover {
+  text-decoration: underline;
+}
+.wi-article-card .wp-block-post-date {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--wi-text-muted);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+.wi-article-card .wp-block-post-date time {
+  color: inherit;
+}
+.wi-article-card .wp-block-post-title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 14px;
+  letter-spacing: -0.005em;
+}
+.wi-article-card .wp-block-post-title a {
+  color: var(--wi-text);
+  text-decoration: none;
+}
+.wi-article-card .wp-block-post-title a:hover {
+  color: var(--wi-teal);
+}
+.wi-article-card .wp-block-post-excerpt {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--wi-text-soft);
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+.wi-article-card .wp-block-post-excerpt p {
+  margin: 0;
+}
+.wi-article-card .wp-block-read-more,
+.wi-article-card a.wp-block-read-more {
+  color: var(--wi-teal);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  align-self: flex-start;
+  display: inline-block;
+}
+.wi-article-card .wp-block-read-more::after {
+  content: " ->";
+  font-family: inherit;
+  font-weight: 700;
+}
+.wi-article-card .wp-block-read-more:hover {
+  text-decoration: underline;
+}
+
+/* 22.2 Featured Article (Sticky Post) */
+.wi-featured-article {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  padding: 48px 56px;
+  background: var(--wi-surface-soft);
+  border-radius: 20px;
+  align-items: center;
+}
+.wi-featured-article .wp-block-post-terms {
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--wi-green);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin: 0 0 20px;
+  line-height: 1.4;
+}
+.wi-featured-article .wp-block-post-terms a {
+  color: inherit;
+  text-decoration: none;
+}
+.wi-featured-article .wp-block-post-date {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--wi-text-muted);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+.wi-featured-article .wp-block-post-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.wi-featured-article .wp-block-post-title a {
+  color: var(--wi-text);
+  text-decoration: none;
+}
+.wi-featured-article .wp-block-post-title a:hover {
+  color: var(--wi-teal);
+}
+.wi-featured-article .wp-block-post-excerpt {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--wi-text-soft);
+  margin: 0 0 24px;
+}
+.wi-featured-article .wp-block-read-more {
+  display: inline-block;
+  padding: 12px 22px;
+  background: var(--wi-green);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  align-self: flex-start;
+  line-height: 1.4;
+}
+.wi-featured-article .wp-block-read-more::after {
+  content: " ->";
+}
+.wi-featured-article .wp-block-post-featured-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+.wi-featured-article .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 22.3 Article-Grid Layout (3 Spalten Desktop) */
+.wp-block-post-template.is-layout-grid {
+  gap: 32px;
+}
+.wp-block-post-template:has(.wi-article-card) {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wp-block-post-template:has(.wi-article-card) > li {
+  list-style: none;
+  margin: 0;
+}
+
+/* 22.4 Upcoming (Scheduled Posts) */
+.wi-article-card.wi-article-card--upcoming {
+  background: #fff;
+  border: 1px dashed var(--wi-border);
+}
+.wi-article-card.wi-article-card--upcoming::before {
+  content: "Demnaechst";
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--wi-surface-soft);
+  color: var(--wi-text-muted);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  align-self: flex-start;
+}
+.wi-article-card--upcoming .wp-block-post-title a {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* 22.5 Pagination */
+.wp-block-query-pagination {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+.wp-block-query-pagination-numbers a,
+.wp-block-query-pagination-numbers .page-numbers {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #fff;
+  border: 1px solid var(--wi-border);
+  border-radius: 8px;
+  color: var(--wi-text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.wp-block-post-template:has(.wi-article-card) {
+  /* (Wiederholung oben aufgehoben - block ist final) */
+}
+.wp-block-query-pagination-numbers a:hover {
+  border-color: var(--wi-teal);
+  color: var(--wi-teal);
+}
+.wp-block-query-pagination-numbers .current {
+  background: var(--wi-green);
+  color: #fff;
+  border-color: var(--wi-green);
+}
+.wp-block-query-pagination-previous,
+.wp-block-query-pagination-next {
+  color: var(--wi-teal);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+
+/* ============================================================
+   § 23  Responsive — Tablet (max-width: 960px)
+   Klassen-basierte Spalten-Kollapse fuer die waveImpact-
+   Design-System-Komponenten. Inline-styled Custom-HTML-
+   Grids werden im naechsten Block (§ 24) behandelt.
+   ============================================================ */
+@media (max-width: 960px) {
+  .wi-section { padding-block: 72px; }
+  .wi-hero    { padding-block: 64px 56px; }
+  .wi-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .wi-hero-visual { max-width: 360px; }
+  .wi-stat-strip-inner,
+  .wi-valueprops,
+  .wi-services,
+  .wi-diff {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .wi-pullquote { padding: 56px 32px; }
+  .wi-pullquote-mark {
+    position: static;
+    margin-bottom: 24px;
+  }
+  .wi-pullquote-text { font-size: 24px; }
+  .wi-timeline-header { grid-template-columns: 1fr; }
+  .wi-timeline-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .wi-final-cta { padding: 56px 32px; }
+  .wi-final-cta-decor { width: 320px; right: -80px; }
+  .wi-nav { display: none; }
+  .wi-header-logo img { width: 184px; height: 30px; }
+
+  .wi-progression { grid-template-columns: 1fr; gap: 24px; }
+  .wi-progression-step { padding: 24px 0; border-top: 1px solid var(--wi-border); }
+  .wi-progression-step:first-child { border-top: none; }
+  .wi-progression-step:not(:last-child)::after { display: none; }
+
+  .wi-service-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 48px 0;
+  }
+  .wi-service-detail-meta { position: static; }
+  .wi-service-includes { grid-template-columns: 1fr; gap: 10px; }
+
+  .wi-matrix thead th,
+  .wi-matrix tbody td,
+  .wi-matrix tfoot td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  .wi-matrix tfoot td { font-size: 17px; }
+
+  .wi-meta-strip {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0;
+  }
+  .wi-meta-strip-item {
+    padding: 0;
+    margin: 0;
+    border-right: none;
+  }
+  .wi-phase {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 36px 0;
+  }
+  .wi-phase-meta { position: static; }
+  .wi-phase-num { font-size: 44px; }
+  .wi-phase-deliverables ul { grid-template-columns: 1fr; }
+
+  /* Query Loop Grid: zwei Spalten auf Tablet */
+  .wp-block-post-template.is-layout-grid,
+  .wp-block-post-template:has(.wi-article-card) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
+/* ============================================================
+   § 24  Responsive — Mobile (max-width: 767px)
+
+   Drei Schichten in dieser Reihenfolge:
+     24.1  Section-Padding noch kompakter (40px)
+     24.2  Inline-Styled Multi-Column-Grids kollabieren
+           (greift auf style-Attribute der Custom-HTML-Blocks,
+           ehemals B.2 — die klassen-basierte Variante hat
+           nicht gegriffen, weil die Container klassenlos sind)
+     24.3  Gutenberg .wp-block-columns Fallback
+     24.4  Overflow Safety-Net (ehemals B.3)
+     24.5  News-Filter-Pills (Platzhalter, anpassen bei
+           Fertigstellung der News-Seite-Filter)
+     24.6  Typografie-Anpassungen
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* 24.1 Section-Padding */
+  .wi-section {
+    padding-top:    40px !important;
+    padding-bottom: 40px !important;
+  }
+  .wi-section:has(.wi-display) {
+    padding-top:    32px !important;
+    padding-bottom: 12px !important;
+  }
+  .wi-section:has(.wi-final-cta) {
+    padding-bottom: 56px !important;
+  }
+  .wi-section:has(.wi-pullquote) {
+    padding-bottom: 40px !important;
+  }
+
+  /* 24.2 Inline-Styled Grids -> Single Column
+     Targetiert Custom-HTML-Container, die per style-Attribut
+     grid-template-columns setzen — symmetrische und asymmetri-
+     sche Zwei-/Drei-/Vier-Spalten-Layouts.
+
+     BEWUSST EXKLUDIERT: Label+Content-Patterns wie 56px 1fr,
+     48px 1fr, 32px 1fr (Step-Listen, Icon+Text). Diese sollen
+     auch auf Mobile nebeneinander bleiben — Nummer neben Text
+     ist mit 56px Breite bei 390px Viewport noch lesbar.
+
+     Bei einem unbekannten Pattern (z.B. 1fr 240px) hier
+     nachtragen — siehe Kommentar am Ende dieses Blocks. */
+
+  /* (a) Symmetrisch: repeat(N, ...) */
+  [style*="grid-template-columns: repeat(2"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns:repeat(2"],
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns:repeat(4"],
+
+  /* (b) Symmetrisch: fr-Tokens */
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr 1fr"],
+
+  /* (c) Asymmetrisch: zwei fr-Tracks */
+  [style*="grid-template-columns: 1fr 1.1fr"],
+  [style*="grid-template-columns: 1.1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.2fr"],
+  [style*="grid-template-columns: 1.2fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.3fr"],
+  [style*="grid-template-columns: 1.3fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.4fr"],
+  [style*="grid-template-columns: 1.4fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.5fr"],
+  [style*="grid-template-columns: 1.5fr 1fr"],
+  [style*="grid-template-columns: 1fr 2fr"],
+  [style*="grid-template-columns: 2fr 1fr"],
+  [style*="grid-template-columns: 1fr 3fr"],
+  [style*="grid-template-columns: 3fr 1fr"],
+
+  /* (d) Asymmetrisch: fr + Pixel-Seitenleiste
+     Deckt typische Content+Sidebar-Layouts ab
+     (z.B. Steps-Liste + SSA-Widget). */
+  [style*="grid-template-columns: 1fr 280px"],
+  [style*="grid-template-columns: 1fr 300px"],
+  [style*="grid-template-columns: 1fr 320px"],
+  [style*="grid-template-columns: 1fr 340px"],
+  [style*="grid-template-columns: 1fr 360px"],
+  [style*="grid-template-columns: 1fr 380px"],
+  [style*="grid-template-columns: 1fr 400px"],
+  [style*="grid-template-columns: 1fr 420px"],
+  [style*="grid-template-columns: 1fr 440px"],
+  [style*="grid-template-columns: 1fr 460px"],
+  [style*="grid-template-columns: 1fr 480px"],
+  [style*="grid-template-columns: 1fr 500px"],
+  [style*="grid-template-columns: 280px 1fr"],
+  [style*="grid-template-columns: 300px 1fr"],
+  [style*="grid-template-columns: 320px 1fr"],
+  [style*="grid-template-columns: 340px 1fr"],
+  [style*="grid-template-columns: 360px 1fr"],
+  [style*="grid-template-columns: 380px 1fr"],
+  [style*="grid-template-columns: 400px 1fr"],
+  [style*="grid-template-columns: 420px 1fr"],
+  [style*="grid-template-columns: 440px 1fr"],
+  [style*="grid-template-columns: 460px 1fr"],
+  [style*="grid-template-columns: 480px 1fr"],
+  [style*="grid-template-columns: 500px 1fr"] {
+    display: block !important;
+  }
+
+  /* Kinder dieser Grids: volle Breite, vertikales Stacking */
+  [style*="grid-template-columns: repeat("] > *,
+  [style*="grid-template-columns:repeat("] > *,
+  [style*="grid-template-columns: 1fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 1.1fr"] > *,
+  [style*="grid-template-columns: 1.1fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 1.2fr"] > *,
+  [style*="grid-template-columns: 1.2fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 1.3fr"] > *,
+  [style*="grid-template-columns: 1.3fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 1.4fr"] > *,
+  [style*="grid-template-columns: 1.4fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 1.5fr"] > *,
+  [style*="grid-template-columns: 1.5fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 2fr"] > *,
+  [style*="grid-template-columns: 2fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 3fr"] > *,
+  [style*="grid-template-columns: 3fr 1fr"] > *,
+  [style*="grid-template-columns: 1fr 280px"] > *,
+  [style*="grid-template-columns: 1fr 300px"] > *,
+  [style*="grid-template-columns: 1fr 320px"] > *,
+  [style*="grid-template-columns: 1fr 340px"] > *,
+  [style*="grid-template-columns: 1fr 360px"] > *,
+  [style*="grid-template-columns: 1fr 380px"] > *,
+  [style*="grid-template-columns: 1fr 400px"] > *,
+  [style*="grid-template-columns: 1fr 420px"] > *,
+  [style*="grid-template-columns: 1fr 440px"] > *,
+  [style*="grid-template-columns: 1fr 460px"] > *,
+  [style*="grid-template-columns: 1fr 480px"] > *,
+  [style*="grid-template-columns: 1fr 500px"] > *,
+  [style*="grid-template-columns: 280px 1fr"] > *,
+  [style*="grid-template-columns: 300px 1fr"] > *,
+  [style*="grid-template-columns: 320px 1fr"] > *,
+  [style*="grid-template-columns: 340px 1fr"] > *,
+  [style*="grid-template-columns: 360px 1fr"] > *,
+  [style*="grid-template-columns: 380px 1fr"] > *,
+  [style*="grid-template-columns: 400px 1fr"] > *,
+  [style*="grid-template-columns: 420px 1fr"] > *,
+  [style*="grid-template-columns: 440px 1fr"] > *,
+  [style*="grid-template-columns: 460px 1fr"] > *,
+  [style*="grid-template-columns: 480px 1fr"] > *,
+  [style*="grid-template-columns: 500px 1fr"] > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Letztes Kind ohne Bottom-Margin (vermeidet trailing space) */
+  [style*="grid-template-columns: repeat("] > *:last-child,
+  [style*="grid-template-columns:repeat("] > *:last-child,
+  [style*="grid-template-columns: 1fr 1fr"] > *:last-child,
+  [style*="grid-template-columns: 1fr 2fr"] > *:last-child,
+  [style*="grid-template-columns: 2fr 1fr"] > *:last-child,
+  [style*="grid-template-columns: 1fr 360px"] > *:last-child,
+  [style*="grid-template-columns: 360px 1fr"] > *:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Wenn ein Layout trotz dieser Liste nicht kollabiert:
+     in DevTools den Parent inspizieren, den exakten Wert von
+     grid-template-columns aus dem inline style-Attribut ablesen,
+     und oben in der entsprechenden Gruppe (a/b/c/d) ergaenzen. */
+
+  /* 24.3 Gutenberg .wp-block-columns Fallback
+     Greift, falls auf einzelnen Seiten der Block-Editor-
+     Spaltenblock statt Custom-HTML benutzt wird. */
+  .wp-block-columns {
+    display: block;
+  }
+  .wp-block-columns > .wp-block-column {
+    flex-basis: 100% !important;
+    max-width:  100% !important;
+    width:      100% !important;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+  }
+  .wp-block-columns > .wp-block-column:last-child {
+    margin-bottom: 0;
+  }
+  .wp-block-column {
+    min-width: 0;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+  /* 24.4 Overflow Safety-Net
+     Zweite Verteidigungslinie, falls trotz Spalten-Kollapse
+     noch Elemente ueber die Viewport-Breite hinausragen. */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  .wp-block-group,
+  .wp-block-cover,
+  .kadence-column-inner,
+  .entry-content,
+  .content-container {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .entry-content > .wp-block-group {
+    padding-left:  1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* 24.5 News-Filter-Pills wrap auf Mobile
+     Selektoren sind Platzhalter — beim Finalisieren der News-
+     Filter-HTML die echten Klassen einsetzen oder die
+     Attribute-Substring-Variante belassen. */
+  .wi-news-filter-list,
+  [class*="filter-list"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 100%;
+  }
+  .wi-news-filter-pill,
+  [class*="filter-pill"] {
+    max-width: 100%;
+    white-space: normal;
+    min-width: 0;
+  }
+
+  /* 24.6 Typografie auf Mobile */
+  h1, h2 {
+    line-height: 1.15;
+  }
+  h3, h4 {
+    line-height: 1.25;
+  }
+  h1 + p, h2 + p, h3 + p, h4 + p {
+    margin-top: 0.25rem;
+  }
+
+  /* 24.7 Tabellen Mobile-Scroll
+     Tabellen, die breiter sind als der Viewport, scrollen
+     innerhalb ihres direkten Parent-Containers. Die Page
+     selbst scrollt nicht horizontal. Native Tabellen-Layout-
+     Semantik (Spalten-Alignment) bleibt erhalten — Overflow
+     wird auf den PARENT gelegt, nicht auf die Tabelle selbst. */
+  *:has(> .wi-matrix),
+  *:has(> table) {
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Gutenberg-Tabelle: figure.wp-block-table IST der Wrapper */
+  .wp-block-table {
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tabellen selbst: respektieren ihre natuerliche
+     Inhalts-Breite, nicht die Container-Breite. Der Parent
+     mit overflow-x kuemmert sich ums Scrollen. */
+  .wi-matrix,
+  .wp-block-table > table,
+  table {
+    max-width: none;
+  }
+
+  /* 24.8 Inline-Padding-Boxen + Headline-Caps auf Mobile
+     Inline-Styles mit grossem Desktop-Padding (56px 64px,
+     48px 56px etc.) wirken auf Mobile wie eine massive Breiten-
+     Steuer — bleiben oft uebersehen, weil sie pro Custom-HTML-
+     Block individuell sind. Hier global runtertarieren.
+
+     Zusatz: H2/H3 mit inline-clamp() bekommen ein konservatives
+     mobile Maximum, damit Headlines auch in engen kollabierten
+     Karten lesbar bleiben. */
+
+  /* Inline-Padding-Reduktion */
+  [style*="padding: 56px 64px"],
+  [style*="padding: 48px 56px"],
+  [style*="padding: 64px 80px"],
+  [style*="padding: 80px 64px"],
+  [style*="padding: 80px 88px"],
+  [style*="padding: 88px 80px"],
+  [style*="padding: 88px 80px 88px 200px"] {
+    padding: 28px 20px !important;
+  }
+
+  /* Headlines mit inline-clamp font-size: zusaetzliches mobile-Cap */
+  h1[style*="clamp"],
+  h2[style*="clamp"],
+  h3[style*="clamp"] {
+    font-size: clamp(20px, 5vw, 24px) !important;
+    line-height: 1.2 !important;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Query Loop Grid: eine Spalte auf Mobile */
+  .wp-block-post-template.is-layout-grid,
+  .wp-block-post-template:has(.wi-article-card) {
+    grid-template-columns: 1fr !important;
+  }
+  .wi-featured-article {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 28px;
+  }
+}
+
+
+/* ============================================================
+   § 25  Responsive — Small Mobile (max-width: 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  .wi-footer { padding: 48px 0 32px; }
+  .wi-footer-tagline { font-size: 14px; }
+  .wi-big-num { font-size: 56px; }
+  .wi-faq-item summary { font-size: 16px; padding-right: 36px; }
+  .wi-faq-item summary::after { font-size: 22px; }
+  .wi-faq-answer { font-size: 15px; padding-right: 0; }
+}
+
+
+/* ============================================================
+   § 26  Page-Specific Overrides
+
+   26.1 News-Seite (page-id-334)
+        Sidebar-Hide und Content-Width-Korrektur. Sobald
+        die Sidebar global im Kadence-Customizer deaktiviert
+        ist (Workstream B.6), kann dieser Block entfernt
+        werden — bis dahin haelt er die News-Seite sauber.
+   ============================================================ */
+.page-id-334 .sidebar-primary,
+.page-id-334 .secondary,
+.page-id-334 #secondary,
+.page-id-334 .widget-area {
+  display: none !important;
+}
+
+.page-id-334 .content-container,
+.page-id-334 .primary,
+.page-id-334 .content-area {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 !important;
+}
+
+.page-id-334 .site-container,
+.page-id-334 .entry-content-wrap {
+  grid-template-columns: 1fr !important;
+  display: block !important;
+}
+
+.page-id-334 .wp-block-query {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  box-sizing: border-box;
+}
+
+
+/* ============================================================
+   § 27  Diagnose-Hinweise
+
+   Falls Overrides nach Einfuegen keinen Effekt zeigen:
+
+   1. Rechtsklick auf das betroffene Element -> Untersuchen
+   2. In der Styles-Spalte nach der erwarteten Regel suchen
+   3. Steht die Regel da, aber durchgestrichen?
+      -> Spaetere Regel ueberschreibt — Source-Order pruefen
+   4. Steht die Regel gar nicht da?
+      -> CSS nicht geladen (Cache leeren: Strg+Shift+R)
+   5. Steht die Regel, ist aktiv, aber visuell ohne Effekt?
+      -> Wahrscheinlich greift Kadence-Row-Padding zusaetzlich.
+         Aktivierung der folgenden Regel bei Bedarf:
+
+         .kadence-row-layout-inner {
+           padding-top:    0 !important;
+           padding-bottom: 0 !important;
+         }
+
+         Vorsicht: betrifft alle Kadence-Rows global.
+         Alternativ pro Row im Editor:
+         Row-Settings -> Spacing -> Padding Top/Bottom = 0
+
+   6. WP-Customizer-Sanitizer-Fehler „Markup is not allowed
+      in CSS"?
+      -> Eine Zeile enthaelt das Zeichen fuer „kleiner als"
+         (auch in Kommentaren). Im gesamten Stylesheet
+         vermeiden.
+   ============================================================ */
